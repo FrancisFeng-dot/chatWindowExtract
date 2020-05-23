@@ -1,0 +1,183 @@
+
+<div ng-controller="com_ctrl">
+	<header class="pulib-header">
+		<div class="public-nav">
+			<div class="logo"></div>
+			<div class="mt_f36 ml_130 f_14">
+				<div>
+				<a class="ml_30 fl hand" href="/main.html#/zpindex">求职</a>
+				 <span class="head-bt fr"  ng-if="we=='0'">
+				    <button class="dlbt" loginbox>登录</button>
+					<button registerbox>注册</button>
+				</span>
+			</div>							
+			<!-- 登陆后出现 -->
+			<span ng-if="we=='1'">
+				<aside class="fr join-user-top clblue">
+				<span><a href="/main.html#resume" target="blank">我的简历</a></span>
+				<span><a href="/main.html#chatlist" target="blank">聊天</a></span>
+				<span><a href="/main.html#job_manage" target="blank">我要招聘</a></span>
+				<span><a href="javascript:;" lgout lgnull>退出登录</a></span>
+				<img src="images/user.png" alt="">
+					  </aside>
+			</span>			
+			<!-- 登陆后出现 -->
+
+			</div>
+		</div>
+	</header>
+	<div class="join-hrcompany-bg">
+		<div class="container public-content">
+			<div class="public-intro">
+				<aside class="color_white lh_12">
+					<div class="join-bace-company">
+						<span class=" campany-img div_alc">
+							<img ng-src="{{com_detail.data.logo}}" alt="" class="mt_f36"></span>
+						<ul class="div_alc ml_40 mt_26">
+							<li class="f_24" ng-bind="com_detail.data.companyname"></li>
+							<li>
+								<span ng-bind="com_detail.data.trade_cn"></span>
+								&nbsp|&nbsp
+								<span ><span ng-bind="com_detail.data.scale_cn"></span>人以上</span>
+							</li>
+						</ul>
+						<ul class="fr mt_26">
+							<li class="f_36 color_blue t_c" ng-bind="com_list_page2.data.total"></li>
+							<li class="t_c">在招职位</li>
+						</ul>
+					</div>
+					<ul class="join-compant-tab f_16">
+						<li tapshow='0'  class="{{tapshow==0?'join-compant-tab1':''}}">公司简介</li>
+						<li tapshow='1'  class="{{tapshow==1?'join-compant-tab1':''}}">
+						   热招职位(
+							<span ng-bind="com_list_page2.data.total">3654</span>
+							)
+						</li> 
+					</ul>
+				</aside>
+			</div>
+		</div>
+	</div>
+<div class="contentname" ng-show="tapshow==0">
+<div style="background:#f7f7f7;">
+	<div class="container public-content">
+		<div class="join-hotjob">
+			<aside class="mt_20">
+				<span class="f_16 color_8f">热招职位</span>
+				<span class="fr color_cf hand" tapshow='1'>
+					查看全部
+					<span ng-bind="com_list_page.data.total">9572</span>
+					个职位
+					<img src="images/r2.png"></span>
+			</aside>
+			<ul class="minh_140 color_8f">
+				<li class="hand box" ng-repeat="(key,value) in com_list_page.data.datalist">
+				     <span class="border top"></span>
+				     <span class="border left"></span>
+				     <span class="border bottom"></span>
+				     <span class="border right"></span>
+				   <a href="/main.html#jobdetail?codeid={{value.codeid}}&company_id={{value.company_id}}">
+				   	<span class="f_16 ovflow w_140" ng-bind="value.jobs_name"></span>
+					<span class="color_red f_16 fr mt_f18" ng-bind="value.wage_cn"></span>
+					<p class="mt_26 f_14 color_cf">
+						<span ng-bind="value.experience_cn"></span><span ng-bind="value.education_cn"></span>
+						.发布于
+						<span ng-bind="value.addtime"></span>
+					</p>
+				   </a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+</div>
+	<div class="container public-content">
+		<div class="mt_40">
+			<div class="public-content-left bl_h">
+				<aside class="join-hr-askfor color_8f">
+					<p class="f_18 mt_40">公司简介</p>
+					<hr class="little-line fl">
+					<br>
+					<p class="mt_26 ml_42">【公司简介】</p>
+					<p class="minh_140 p_al40 f_14 lh_28" ng-bind-html="com_detail.data.contents|htmlfil" htmlfil>
+					</p>
+				</aside>
+				<aside class="color_8f">
+					<p class="f_18 mt_40">工作地址（部分工作地址）</p>
+					<hr class="little-line fl">
+					<div class="company-adress mt_40">
+						<img src="../images/position2.png" alt="">
+						<span ng-bind="com_detail2.data.address"></span>
+					</div>
+					<div class="public-map" style="width: 719px">
+						<div id="allmap"style="height: 200px;">							
+						</div>
+					</div>
+				</aside>
+			</div>
+			<div class="public-content-right">
+				<aside class="color_8f fl ml_30">
+					<p class="f_18">公司环境</p>
+					<hr class="little-line fl"></aside>
+				<span class="company-around ml_30 hand">
+					<img ng-src="{{com_detail.data.company_envir}}"></span>
+				<hr class="mt_none mt_26">
+			</div>
+
+		</div>
+	</div>
+</div>
+<div style="background: #f7f7f7;" class="contentname h_p100" ng-if="tapshow==1">
+	<div class="container public-content f_14 color_8f">
+		<ul class="join-hotjob-list mt_40 mb_116">
+
+			<li ng-repeat="(key, value) in com_list.data">
+			  <span ng-bind="value.categoryname"></span>
+			（<span ng-bind="value.num"></span>）</li>
+		</ul>
+		<br>
+		<div class="bgc_f mb_20" >
+			<aside class="join-hotjob-table  hand" ng-repeat="(key, value) in com_list_page2.data.datalist">
+			   <a href="/main.html#jobdetail?codeid={{value.codeid}}&company_id={{value.company_id}}">
+			   	<ul class="div_alc">
+					<li class="f_16 fw_600" ng-bind="value.jobs_name"></li>
+					<li class="color_red f_16 mt_20" ng-bind="value.wage_cn"></li>
+					<li class="f_14 mt_20">
+						<span ng-bind="value.district_cn"></span>
+						&nbsp|&nbsp
+						<span ng-bind="value.experience_cn"></span>
+						&nbsp|&nbsp
+						<span ng-bind="value.education_cn"></span>
+					</li>
+				</ul>
+
+				<p class="fr mt_60 f_14 color_cf mr_40">
+					发布于
+					<span ng-bind="value.addtime"></span>
+				</p>
+				<aside class="join-person fr">
+					<img ng-src="{{value.headimg}}" class="mr_10">		
+					<span class=" f_14" ng-bind="value.setmeal_name"></span>
+					&nbsp|&nbsp
+					<span class=" f_14" ng-bind="value.category_cn"></span>
+				</aside>
+				<div class="bt_1"></div>
+			   </a>
+				
+			</aside>
+			
+		</div>
+          
+
+		</div>
+		
+
+</div>
+	<div id="page" class="dpn">
+			
+		</div>
+    
+		<div id="page2" ng-show="tapshow==1" class="container bgc_f7 t_c"></div>
+		
+
+</div>

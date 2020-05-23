@@ -1,0 +1,341 @@
+<style type="text/css" media="screen">
+  	._citys { width: 450px; display: inline-block; border: 2px solid #eee; padding: 5px; position: relative; background: #fff;}
+	._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center; border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8; cursor: pointer; }
+	._citys0 { width: 100%; height: 34px; display: inline-block; border-bottom: 2px solid #56b4f8; padding: 0; margin: 0; }
+	._citys0 li { display: inline-block; line-height: 34px; font-size: 15px; color: #888; width: 80px; text-align: center; cursor: pointer; }
+	.citySel { background-color: #56b4f8; color: #fff !important; }
+	._citys1 { width: 100%; display: inline-block; padding: 10px 0; }
+	._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: #f5f5f5; color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
+	._citys1 a:hover { color: #fff; background-color: #56b4f8; }
+	.AreaS { background-color: #56b4f8 !important; color: #fff !important; }
+	#_citysheng li:nth-last-child(1){display:none !important;}
+	.search-choice{
+  		position:relative;
+	}
+	#PoPy{
+  		position:absolute;
+  		top: 225px;
+    	left: 595px;
+	}
+</style>
+<div class="of_ay" ng-controller="com_ctrl">
+<div class="sc_nav">
+    <div class="topLogo">
+    	<div>
+	    	<img src="/images/ysshare.jpg" alt="" style="width: 47px;height: 47px;float: left;border-radius: 6px;">
+	    	<span style="font-size: 18px;color:#32a4fc;float: left;margin-left:9px;    margin-top: 40px;">石头</span>
+	    	<span  style="font-size: 14px;color:#32a4fc;margin-left:-36px;float: left;
+    margin-top: 64px;font-weight: 100;">超级管理系统</span>
+	    </div>
+    </div>
+    <div class="admin-public-user">
+    	<img src="../images/timg.jpg" class="dpb mg_auto mt_40">
+    	<p class="t_c f_16 mt_20">权志龙</p>
+    </div>
+	<ul class="sc_nav_list color_cf f_15 new-nav" >
+		   <a href="/main.html#job_manage"><li class="nav_li color_black admin-nav-bg"><img src="../images/file.png"><span>职位管理</span></li></a>
+		   <a href="/main.html#yushan_hero"><li class="nav_li color_black"><img src="../images/like.png"><span>石头牛人</span></li></a>
+		   <a href="/main.html#communica"><li class="nav_li color_black"><img src="../images/chat.png"><span>沟通</span></li></a>
+		   <a href="/main.html#company_info"><li class="nav_li color_black"><img src="../images/company.png"><span>公司信息</span></li></a>	
+	</ul>
+</div>
+
+	<div class="sc_main pd_top admin-public-top" >
+		<div class="header">
+		<div class="admin-public-content f_14">
+			<span>深圳石头</span>
+			<span class="fr">
+				<div class="pure-menu pure-menu-horizontal">
+				    <ul class="pure-menu-list lh_20">
+				        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">我要求职</a></li>
+				        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+				            <a href="#" id="menuLink1" class="pure-menu-link bor_blue lh_12">招聘管理</a>
+				            <ul class="pure-menu-children pt_10">
+				                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+				                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+				                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
+				            </ul>
+				        </li>
+				    </ul>
+				</div>
+			</span>
+		</div>
+	</div>
+</div>
+<div class="sc_main mt_80 ps_f ml_226">
+
+
+
+<div class="of_ay">
+	<div class="admin-public-content manage" ng-if="tapshow==0">
+		<nav class="admin-chat-topnav bgc_f f_14 color_8f lh_50">
+			<ul class="ml_42 fl">
+				<li class="{{tapshow==0?'color_blue':''}}">职位管理</li>
+				
+			</ul>
+			<aside class="fr f_14">
+				<div class="btn-group btn-check  mr_40">
+					<button type="button" class="btn btn-default dropdown-toggle br_none" >
+					<span ng-if="toggleshow==0" toggleshow="1">筛选</span>
+					<span ng-if="toggleshow==1" toggleshow="0">收起</span>
+							
+						<img src="../images/down.png" class="ml_16"></button>
+					
+				</div>
+				<div class="btn-group mr_40 f_14">
+					<button type="button" class="chatbt btn btn-default dropdown-toggle br_none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<button class="send-position f_14" tapshow="2">发布职位<img src="../images/down.png" class="ml_16"></button></button>
+						
+				</div>
+				
+			</aside>
+			
+		</nav>
+	<aside class="admin-chat-topnav bgc_f f_14 color_8f lh_50" ng-if="toggleshow==1">
+			<!--点击筛选-->
+			<div ng-if="toggleshow==1" style="margin-left:-20px;">
+					<div class="fl position-status">
+						职位状态：
+					</div>
+					<ul class="chat-no-bt" style="float:left;"  id="openjob">	
+					<li value="" selectrun="com_list_page.params.job_status">全部</li>		
+					<li value="1" selectrun="com_list_page.params.job_status">打开的职位</li>
+					<li value="0" selectrun="com_list_page.params.job_status">关闭的职位</li>	
+				</ul>
+			</div>
+		</aside>
+		<aside class="bgc_f h_p100 w_p100" id="showone" ng-if="toggleshow==0">
+		</aside>
+		<aside class="bgc_f admin-hero-card mt_10 hand cl"  ng-repeat="(key, value) in com_list_page.data.datalist">
+			<!--未点击筛选-->
+			<div class="no-slect" >
+				
+			</div>
+			<!--未点击筛选-->
+			
+			
+			
+			
+			<!--点击筛选-->
+			<div>
+				<nav class="admin-chat-topnav bgc_f color_8f">
+				<span class="fl">
+					<span class="ml_42 web f_14" ng-bind="value.jobs_name"></span>
+					<button type="" class="ml_16 color_red bx-bt" ng-if="value.job_status==0">已关闭</button>
+					<button type="" class="ml_16 color_red bx-bt" ng-if="value.job_status==1">已发布</button>
+					
+				</span>
+				<span class="fr">
+					<span class="span_color" ng-bind="value.amount"></span>
+					<span class="span-watch span_color" ng-bind="value.click"></span>
+				</span>
+				
+			</nav>
+			<div class="ml_42 mr_40"></div>
+			<nav class="admin-chat-topnav bgc_f manage-topnav  color_8f mt_f10">
+				
+				<ul class="chat-no-bt ml_14">
+					<li class="li" ng-bind="value.district_cn"></li>
+					<span class="fl">|</span>
+					<li class="li">{{value.experience_cn}}工作经验</li>
+					<span class="fl ">|</span>
+					<li class="li" ng-bind="value.education_cn"></li>
+					<span class="fl">|</span>
+					<li class="li" ng-bind="value.wage_cn"></li>
+					
+					
+				</ul>
+				<span class="fr">
+					<span class="f_14 ">人查看</span>
+					<span class="span-chat f_14 "> 人沟通</span>
+				</span>
+			</nav>
+			<div class="bt_1 fb div-online"><span class="ml_42 mr_40">在线第{{value.onlineday}}天{{value.newstime}}号发布</span></div>
+			<div class="f_14 fw_b">
+				<span class="change-position lh_50 " yseditadd="com_editadd" tapshow="2">
+					<img src="../images/down.png" class="ml_16">
+					编辑职位
+				</span>
+				<!-- <span class="lh_50">
+					<img src="../images/down.png" class="ml_16">
+					打开职位
+				</span> -->
+			</div>
+			</div>
+		</aside>
+		<div id="page" class="t_c" style="text-align: center;margin-top: 25px;">
+        </div>
+        <div class="{{zwtotal=='0'?'':'dpn'}}">
+				<div class="nothing">
+					<img src="../images/meiyouneirong_03.png" alt="">		
+					<h4>暂未搜索到内容，换个关键词试试！</h4>
+				</div>
+			</div>  
+	</div>
+	<!--点击发布职位展示的页面-->
+	<div class="admin-public-content publish-position"  ng-if="tapshow==2">
+		<div class="position-center">
+			<table>
+				<thead>
+					<tr class="bt_1 tr_1 tr-con">
+						<td class="fl"><span class="span_color">公司基本信息</span><span class="span_red">*</span></td>
+						<td class="fr"><span class="span-prompt">温馨提示：公司信息完善后，如需修改请切换到个人中心</span></td>
+						
+					</tr>
+
+				</thead>
+
+				<tbody>
+					<tr class="tr_2">
+						<td>公司名称:<span class="span_color span-padding" ng-bind="com_detail.data.companyname"></span></td>
+						<td>人员规模:<span class="span_color span-padding" ng-bind="com_detail.data.scale_cn"></span></td>
+					</tr>
+					<tr class="bt_1 tr-con">
+						<td><span class="span_color">职位基本信息</span><span class="span_red">*</span></td>
+						
+					</tr>
+					<tr class="tr_4 tr_input">
+						<td>职位名称<input  type="text" placeholder="请输入"  ng-model="com_editadd.params.jobs_name"></td>						
+					</tr>
+					<!--提示信息把 .span_prompt 显示出来-->
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.a==1"><span class="color_red">请输入职位名称!</span></td>
+					</tr>
+					<tr class="tr_input">
+						<td>职位类型<select ysselect="com_editadd.params.category_cn" id="category" type="text"  class="set_input" placeholder="点击选择职位类型">
+                          <option ng-repeat="(key,value) in com_list.data" value="{{value.categoryname}}" ng-bind-html="value.namestr|htmlfil" ng-selected="com_editadd.params.category_cn==value.categoryname"></option>
+                        </select>
+						</td>						
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.b==1"><span class="span_red">请输入职位类型!</span></td>
+					</tr>
+					<tr class="tr_input">
+						<td>技能要求<input  type="text" placeholder="请输入" ng-model="com_editadd.params.skilltags"></td>
+						
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.c==1"><span class="color_red">请输入技能要求!</span></td>
+					</tr>
+					<tr class="tr_input">
+						<td>工作省份<input ng-model="com_editadd.params.district_cn" id="city"  ng-click="city($event)" type="text" name="searchCom" class="set_input" pname="{{com_editadd.params.district_cn}}" cname="" placeholder="点击选择省份">
+						</td>
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.d==1"><span class="color_red">请填写工作省份!</span></td>
+					</tr>
+					<tr class="tr_input ">
+						<td>工作地点<input type="text" placeholder="请输入该工作地址的详细地址" ng-model="com_editadd.params.address"></td>
+						
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.e==1"><span class="color_red">请填写工作地点!</span></td>
+					</tr>
+					<tr class="tr_input">
+						<td>薪资要求<select ng-model="com_editadd.params.wage_cn">
+								<option value="">不限</option>
+								<option value="{{value.c_id}}" ng-repeat="(key,value) in com_list6.data">{{value.c_name}}</option>
+
+							</select>
+						</td>
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.f==1"><span class="color_red">请填写薪资要求!</span></td>
+					</tr>
+					<tr class="bt_1 tr-con tr_10">
+						<td><span class="span_color">职位要求</span><span class="span_red">*</span></td>	
+					</tr>
+					<tr class="tr_input tr_11">
+						<td>经验要求<select ng-model="com_editadd.params.experience_cn">
+								<option value="">不限</option>
+								<option value="{{value.c_id}}" ng-repeat="(key,value) in com_list4.data">{{value.c_name}}</option>
+
+							</select>
+						</td>
+					</tr>
+					<tr class="tr_prompt">
+						
+						<td ng-if="com_editadd.g==1"><span class="color_red">请选择经验要求!</span></td>
+					
+					</tr>
+					<tr class="tr_input">
+						<td>最低学历<select ng-model="com_editadd.params.education_cn">
+												<option value="">不限</option>
+												<option value="{{value.c_id}}" ng-repeat="(key,value) in com_list5.data">{{value.c_name}}</option>
+											</select></td>
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.h==1"><span class="color_red">请选择学历!</span></td>
+					</tr>
+					<tr class="tr_input">
+						<td>
+							<span class="dpb position-span">职位描述</span>
+						</td>
+						<td>
+							<textarea name="" placeholder="请输入" ng-model="com_editadd.params.description"></textarea>
+							<span class="span-limit">0/600</span>
+						</td>
+					</tr>
+					<tr class="tr_prompt">
+						<td ng-if="com_editadd.i==1"><span class="color_red">请填写职位描述!</span></td>
+					</tr>
+					<tr class="bt_1 tr-con">
+						<td><span class="span_color">其他信息</span><span class="span_red">*</span></td>	
+					</tr>
+					<tr class="tr_input tr_15">
+						<td>接受简历邮箱<input  type="text" placeholder="请选择" ng-model="com_editadd.params.email" tapshow="1"></td>
+					</tr>
+					<tr style="padding: 56px 0 56px 206px;">
+						<td>
+						<button class="btn-save" comtime="com_editadd" >保存</button>
+							<button class="btn-save" tap="0" tapshowrun="com_list_page">返回</button>
+						</td>
+					</tr>
+				
+				</tbody>
+			</table>	
+		</div>
+	</div>
+	<!--点击发布职位展示的页面-->
+	<!--请输入您简历接收的邮箱 -->
+	<div class="chat-layerbox" ng-if="tapshow==1">
+	    <div class="inadequacy-box bgc_f manage-box">
+	        <img src="../../images/close.png" class="fr mt_20 hand img-delect" tapshow="2">
+	    	<p class="f_16 cl t_c color_8f fw_600">请输入您简历接收的邮箱</p>
+	   
+	    	<p class="mt_40 color_8f fw_600"><input class="w_p100 mt_20 color_8f mb_20"  type="text" name="" value="" placeholder=""  ng-model="com_editadd.params.email"></p>
+	    	<p class="color_cf mt_20 fw_600 p-email">您还没有收到任何简历的邮箱，无法接收附件简历，请添加</p>
+	    	
+	    	
+	    	<aside class="mt_20">
+	    		
+	    		<span class="notice-yes"><button class="br_none color_white btn-c"  tapshow="2">确定</button></span>
+	    	</aside> 
+	    </div>				
+	</div>
+	 <!--请输入您简历接收的邮箱 -->
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

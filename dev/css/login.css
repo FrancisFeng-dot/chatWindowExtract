@@ -1,0 +1,619 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    font: 14px/150% "微软雅黑", tahoma, arial, "Hiragino Sans GB", sans-serif;
+    color: #242424;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+abbr, article, aside, datalist, details, dialog, figure, figcaption, footer, header, mark, menu, meter, nav, output, progress, section, time {
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    outline: 0 none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0 none;
+}
+
+iframe {
+    border: medium none;
+}
+
+table {
+    BORDER-SPACING: 0;
+}
+
+ol {
+    list-style: none;
+    outline: 0 none;
+}
+
+ul {
+    list-style: none;
+    outline: 0 none;
+}
+
+em, i {
+    FONT-STYLE: normal
+}
+
+u {
+    text-decoration: none;
+}
+
+input {
+    FONT: 12px Arial, Tahoma, simsun;
+    outline: 0 none;
+}
+
+textarea {
+    overflow-y: auto;
+    resize:none;
+    FONT: 12px Arial, Tahoma, simsun
+}
+
+select {
+    FONT: 12px Arial, Tahoma, simsun
+}
+
+button {
+    padding: 0;
+    vertical-align: middle;
+    overflow: visible;
+    cursor: pointer;
+    outline: 0 none;
+}
+
+.clear {
+    display: block;
+    hegiht: 0px;
+    VISIBILITY: visible;
+    CLEAR: both;
+    overflow: hidden;
+    width: 100%;
+}
+
+.body {
+    text-align: center;
+}
+
+button {
+    font-family: "微软雅黑";
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.none {
+    display: none;
+}
+.indexContent{
+    position: relative; height: 75%;
+}
+/*背景图样式设置*/
+.mainBackground{
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+    min-width: 1000px;
+    height: 100%;
+}
+
+/***内容样式***/
+.loginInterface,.theFooter{
+    width: 1000px;
+    margin: 0 auto;
+
+}
+.loginInterface{
+    height: 530px;
+    padding-top: 5%;
+
+}
+/**左侧内容**/
+
+.advertisingArea{
+
+    width: 45%;
+    height: 100%;
+    float: left;
+
+    position: relative;
+}
+.number{
+    width: 100%;
+    text-align: right;
+    position: absolute;
+    bottom: 170px   ;
+    font-size: 54px;
+    color: #fff;
+}
+.business{
+    font-size: 28px;
+}
+/**右侧*登录窗口*/
+.loginBox{
+    width: 45%;
+    height: 100%;
+    float: right;
+    position: relative;
+
+}
+
+.loginWindow{
+    height: 100%;
+    width: 380px;
+    position: absolute;
+    bottom:0;
+}
+.contentLogin{
+    background-color: #fff;
+    padding:0 30px;
+    border-radius: 5px;
+}
+.loginNav{
+    border-bottom: 1px solid #eee;
+}
+.customerServiceSupervisor,.customerService{
+    display: inline-block;
+    width: 157px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 22px 0;
+    border-bottom: 2px solid transparent ;
+    color: #999;
+    cursor: pointer;
+}
+.buttonColor{
+    border-color: #227ae5;
+    color: #227ae5;
+    position: relative;
+}
+.buttonColor i{
+    position: absolute;
+    bottom: -2px;
+    width: 10px;
+    height: 6px;
+    left: 50%;
+    margin-left: -5px;
+    background: url("../images/login/img.png") no-repeat 0 0;
+}
+.customerform{
+    font-size: 14px;
+    margin-top: 28px;
+}
+.customerform td{
+    height: 40px;
+    padding-bottom: 19px;
+}
+.labelAll{
+    display: inline-block;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+
+    width: 100%;
+
+    position: relative;
+    height: 40px;
+    border: 1px solid #ebebeb;
+}
+.labelError{
+    border-color: #f87e7d;
+}
+.right_td{
+    width: 70px;
+
+}
+.right_td span{
+    display: inline-block;
+    text-align: right;
+    width: 70px;
+    font-size: 14px;
+}
+.labelAll input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-left:5px;
+    display: inline-block;
+    width: 98%;
+    height: 40px;
+    line-height: 40px;
+}
+.labelAll i{
+    position: absolute;
+    width: 22px;
+    height: 19px;
+    background: url("../images/login/img.png") no-repeat -16px 0;
+    top:10px;
+    right: 15px;
+    cursor: pointer;
+}
+.verification{
+    width: 106px;
+}
+.verificationImg{
+    display: inline-block;
+    margin: 0 8px 0 12px;
+}
+.verificationImg img{
+    width: 90px;
+    height: 30px;
+}
+.judge{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url("../images/login/img.png") no-repeat;
+    vertical-align: middle;
+}
+.correct{
+    background-position: -51px 0;
+}
+.error{
+    background-position: -75px 0;
+}
+.checkboxs input{
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 5px;
+}
+.checkboxs{
+    margin-top: 3px;
+    float: left;
+}
+.retrievePassword{
+    float: right;
+    cursor: pointer;
+    width: 79px;
+    padding: 2px 0;
+    text-align: center;
+    font-size: 14px;
+    color:#227ae5;
+}
+.errorPrompt{
+    margin-top: 2px;
+    width: 100%;
+    height: 24px;
+    background-color: #f9c1c1;
+    line-height: 24px;
+    color: #242424;
+    font-size: 12px;
+}
+.errorPrompt .judge{
+    margin-left: 12px;
+    margin-right: 5px;
+}
+.signIn{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: url("../images/login/line.png");
+    background-repeat: repeat-x;
+    border:none;
+    border-radius: 5px;
+    font-size: 18px;
+    color:#fff;
+    letter-spacing:8px;
+    cursor: pointer;
+}
+
+.customerform .other{
+    padding-bottom: 3px;
+}
+.registerImmediately{
+    padding-bottom: 20px;
+    text-align: center;
+    height: 28px;
+}
+.registerImmediately a{
+    color: #3f87ff;
+}
+/*返回官网*/
+.return{
+    font-size: 18px;
+    padding-top: 20px;
+
+    text-align: right;
+}
+.return a{
+    display: inline-block;
+    color: #fff;
+}
+.return i{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/login/img.png") no-repeat -99px 0;
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-left: 5px;
+}
+/*自定义下拉框*/
+
+.NavigationQuery {
+    height: 100%;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+
+}
+
+.NavigationQuery p {
+    display: inline-block;
+    float: left;
+    line-height: 26px;
+}
+
+.labelInput {
+    display: inline-block;
+    height: 24px;
+    border: 1px solid #ddd;
+    line-height: 22px;
+    margin-left: 10px;
+}
+
+.labelInput input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 100%;
+    padding: 0;
+    padding-left: 5px;
+}
+
+.headRight {
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    z-index: 10;
+}
+
+.Dropox {
+    display: inline-block;
+    line-height: 22px;
+    color: #666;
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-left: 10px;
+    float: left;
+    /*background-color: #f4f7ff;*/
+    background: #fff;
+
+}
+
+.Dropox .select > span, .Dropox > span {
+    padding: 0 30px 0 5px;
+    _width: 82px;
+    width: 82px;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #333;
+    display: block;
+    _display: inline-block;
+    border: 1px solid #ddd;
+    height: 38px;
+}
+
+.Dropox .d_arrow {
+    height: 24px;
+    width: 24px;
+    border-left: 1px solid #ddd;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background-color: #f6f6f6;
+}
+
+.Dropox .d_arrow:before, .wrapper-dropdown .d_arrow .before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 5px 5px 0 5px;
+    border-style: solid;
+    border-color: #333 transparent;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    z-index: 1000;
+}
+
+.Dropox .dropdown {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    border: 1px solid #dce1e5;
+    color: #333;
+    opacity: 0;
+    pointer-events: none;
+    background: #fff;
+    zoom: 1;
+    z-index: 9999;
+    display: none;
+}
+
+.Dropox .dropdown li {
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+    padding: 2px 10px 2px 5px;
+    white-space: nowrap;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.Dropox .dropdown li:first-child {
+    border-top: none;
+}
+
+.Dropox .dropdown li:hover {
+    background-color: #f5f5f5;
+}
+
+.NavigationQuery.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    display: inline-block;
+    max-height: 180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.teamselect {
+    _width: 130px;
+    min-width: 130px;
+}
+
+.NavigationQuery.active .match-select, .NavigationQuery.active #handicap {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}
+
+.NavigationQuery.active .event_box .event_title {
+    border-bottom-color: #ddd;
+}
+
+.NavigationQuery .handicap .handbd label {
+    text-align: left;
+}
+
+
+.customerserviceLogin .Dropox > span{
+    line-height: 38px;
+    border-radius: 3px;
+}
+.customerserviceLogin .Dropox .d_arrow {
+    height: 38px;
+    border: none;
+    background-color: transparent;
+}
+.customerserviceLogin .Dropox .d_arrow:before,.customerserviceLogin .wrapper-dropdown .d_arrow .before{
+    top:16px;
+}
+.customerserviceLogin .Dropox{
+    margin-left: 0;
+    background-color: #f5f5f5;
+}
+.customerserviceLogin .NavigationQuery{
+    margin-left: 0;
+
+}
+.customerserviceLogin .Dropox .dropdown{
+    top:39px;
+}
+.customerserviceLogin .Dropox .dropdown li{
+    height: 30px;
+    line-height: 30px;
+}
+.customerserviceLogin .Dropox .dropdown li:hover{
+    background-color: #227ae5;
+    color: #FFF;
+}
+/*页脚*/
+.footer{
+    width: 100%;
+    text-align: center;
+    min-width: 1000px;
+
+}
+.theFooter{
+    padding-top: 2%;
+}
+.scanQRcode{
+    display: inline-block;
+}
+.product{
+    display: inline-block;
+    padding:0 30px 0 22px;
+    border-right: 1px solid #e3e3e3;
+    vertical-align: top;
+    height: 130px;
+}
+.product dt{
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.product dd{
+    height: 14px;
+    line-height: 14px;
+    margin-bottom: 8px;
+    color: #999999;
+    text-align: left;
+
+}
+.product dd a{
+    color: #999999;
+}
+.contactUs dd{
+    width: 235px;
+    display: inline-block;
+
+}
+.contactUs{
+    width: 235px;
+    border-right: none;
+}
+.first{
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+}
+.last{
+    float: left;
+    display: inline-block;
+    width: 175px;
+    text-align: left;
+}
+.companyInformation{
+    color:#999;
+    margin-top: 25px;
+}
+.customerform .login_tr td{padding:0;height: 63px; vertical-align: top;}
+.customerform .login_tr td.right_td span{height: 60px;line-height: 40px;}
+.customerform .login_tr .labelAll input{height: 38px;}
+.form_tips .error{padding:0 10px;color: #f00;}
+/* select input*/
+.shadow{ box-shadow: 0 0 3px #000;}
+.select{position:relative;border-radius: 2px;width:120px;min-width:120px;height:35px;border:1px solid #eee;cursor:pointer; font-size: 12px;float: left;z-index: 1000}
+.select:after{content:"";position:absolute;top:50%;right:10px;margin-top:-2px;border-top:5px solid #666;border-right:5px solid transparent;border-left:5px solid transparent;}
+.select .select_text{padding:0 20px 0 10px;height:30px;line-height:30px;white-space: nowrap;    text-overflow: ellipsis;    overflow: hidden;}
+.select_ul{display:none;color:#242424;position:absolute;top:34px;left:-1px;width:120px;min-width:120px;max-height:305px; overflow-y: auto !important;border:1px solid #D4D4D4;border-bottom-right-radius:3px;border-bottom-left-radius:3px;background:#fff;}
+.select_ul li{line-height:30px;text-indent:10px;white-space: nowrap;    text-overflow: ellipsis;    overflow: hidden;}
+.select_ul li:hover{background:#f5f8fa;}
+.select_ul li.cur{background:#f5f8fa;}

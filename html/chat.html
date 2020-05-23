@@ -1,0 +1,264 @@
+ <div style="background: #f7f7f7" ng-controller="com_ctrl">
+ 	
+
+	<header class="pulib-header">
+		<div class="public-nav">
+			<div class="logo"></div>
+			<div class="mt_f36 ml_130 f_14">
+			<div>
+				<a class="ml_30 fl hand" href="/main.html#/zpindex">求职</a>
+				 <span class="head-bt fr"  ng-if="we=='0'">
+				    <button class="dlbt" loginbox>登录</button>
+					<button registerbox>注册</button>
+				</span>
+			</div>							
+			<!-- 登陆后出现 -->
+			<span ng-if="we=='1'">
+				<aside class="fr join-user-top clblue">
+				<span><a href="/main.html#resume" target="blank">我的简历</a></span>
+				<span><a href="/main.html#chatlist" target="blank">聊天</a></span>
+				<span><a href="/main.html#job_manage" target="blank">我要招聘</a></span>
+				<span><a href="javascript:;" lgout lgnull>退出登录</a></span>
+				<img src="images/user.png" alt="">
+					  </aside>
+			</span>			
+			<!-- 登陆后出现 -->
+		 </div>
+		</div>
+	</header>
+	<div class="container public-content">
+		<div class="mt_40">
+			<div class="public-content-left fl bgc_f" style="width: 62%">
+				<section>
+					<aside class="f_14 publi-chatbox-top">
+						<span ng-bind="com_list2.data.nickname"></span>
+						<span class="color_cf ml_16" ng-bind="com_list2.data.com_shortname"></span>
+						<span class="color_cf ml_16" ng-bind="com_list2.data.city"></span>
+						<span class="fr hand color_8f" tapshowupload2='16' savekey="com_editadd.params.reportimg" ng-if="mk3==0">举报</span>
+						<span class="fr color_red" ng-if="mk3==1">已举报</span>
+		<!-- 举报 -->
+						 <div class="join-acceptornot bgc_f f_14" ng-if="tapshow==16">
+                        	<img src="images/close.png" class="fr mt_20 mr_40 hand" tapshow='0'>
+                        	<p class="ml_40 mt_40">我要举报的是<span class="color_blue">"<span ng-bind="com_list2.data.nickname"></span>"</span>招聘者</p>
+                        	<div class="jub-user">
+                        		<img ng-src="{{com_list2.data.headimg}}" alt="">
+                        		<span class="ml_16" ng-bind="com_list2.data.nickname"></span>
+                        		<span class="f_12 color_8f m_lr6" ng-bind="com_list2.data.com_shortname"></span>
+                        		<span class="f_12 color_8f">|</span>
+                        		<span class="f_12 color_8f m_lr6" ng-bind="com_list2.data.city"></span>
+                        		<div class="inbox">
+                        		    <p class="h_30 mt_20">请选择举报类型：</p>
+                        		    <div class="ml_20 rainput">                    		    	
+                        		    	<input type="checkbox" name="msg" id="lj" value="1" ng-model="com_editadd.params.report1"/>
+                        		    	<label for="lj">垃圾信息</label>
+                        		    	<input type="checkbox" name="msg" id="bs" value="2" ng-model="com_editadd.params.report2"/>
+                        		    	<label for="bs">不实信息</label><br>
+                        		    	<input type="checkbox" name="msg" id="wf" value="3" ng-model="com_editadd.params.report3"/>
+                        		    	<label for="wf">违法信息</label>
+                        		    </div>
+                                    <p class="h_30 mt_20">请补充举报内容：</p>
+                                    <textarea name="" ng-model="com_editadd.params.content" placeholder="在这里输入您的举报内容"></textarea>
+                        		</div>
+                        		<ul class="jbimg-box">
+                        			<li class="addjb-img mr_10"  ng-repeat="(key, value) in com_editadd.params.reportimgarr">
+                        			    <img ng-src="{{value.img}}" alt="">
+                        			    <img src="/images/close-circled.png" alt="" delkey="reportimgarr" delimg="com_editadd.params.reportimg">
+                        			</li>
+                        		    <li class="jb-upload-img dp_ib" name="picker">
+                        		    	<input type="file" name="" value="">
+                        		    </li>
+                        		</ul>
+                        		<div class="cl">
+                        			<button type="" comtime="com_editadd">确定</button>
+                        			<button type="" class="dpn" id="layerwindow" tapshow="15" style="border: 1px solid #fff;background: #fff;"></button>
+                        		</div>
+                        		
+                        		
+                        	</div>
+                        </div>
+         <!-- 举报成功 -->
+                        <div class="jb-success" ng-if="tapshow==15&&mk3==0" style="z-index: 1;">
+                        	<h4 class="color_blue">提交成功</h4>
+                        	<p>提交成功！石头管理员会尽快处理，感谢您对建设文明石头的大力支持！</p>
+                        	<button type="" mkshow='mk3'>确定</button>
+                        </div>
+
+
+					</aside>
+					<hr class="mt_10">
+					<aside class="publi-chatbox" style="position: relative;">
+						<div class="newmore" style="margin-top:-7px;margin-right: 21px;" ng-if="com_list.newsnum>0">
+							<img src="/images/jiazai.png">
+							{{com_list.newsnum}}条新消息提醒
+							<img src="/images/cha.png" id="cha1">
+						</div>
+						<div class="h_400" style="position: relative;" closeface>
+							<div class="loadmore" style="margin-top:-39px;">
+								<img src="/images/jiazai.png">
+								加载更多
+								<img src="/images/cha.png" id="cha2">
+							</div>
+							<ul id="chatwindow">
+								<div class="dpn" id="quan" style="width: 50px; margin: 0 auto;"><img src="/images/loading2.gif"></div>
+								<span class="dp_t mg_auto public-chat-notice cl mb_20 f_12" id="bottomline" style="background: #fff;color:#75bffc;"></span>
+								<li ng-repeat="(key, value) in datalist">
+							<div ng-if="value.chattype==1">
+								<div ng-if="value.to.uid==com_list.useruid">
+									
+								   <span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+									<div class="company-sent">
+									    <div>
+									    	<img ng-src="{{value.from.avatar}}" class="company-img fl cl">
+									    </div>
+										<p ng-bind-html="value.content|htmlfil">
+										</p>
+									</div>
+								</div>
+								<div ng-if="value.from.uid==com_list.useruid">
+									
+								   <span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+									<div class="user-sent fr w_p100">
+										<p ng-bind-html="value.content|htmlfil">
+										</p>
+									</div>
+								</div>
+								</div>
+
+							<div ng-if="value.chattype==2||value.chattype==3||value.chattype==5||value.chattype==6||value.chattype==7">
+								<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+								<span class="dp_t mg_auto public-chat-notice cl mb_20 f_12" ng-bind="value.content"></span>
+							</div>
+							<div ng-if="value.chattype==18">
+									
+								   <span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+									<div class="user-sent fr w_p100">
+										<p ng-bind-html="value.content|htmlfil">
+										</p>
+									</div>
+								</div>
+								<div ng-if="value.chattype==19">
+									
+								   <span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+									<div class="company-sent">
+									    <div>
+									    	<img ng-src="{{value.from.avatar}}" class="company-img fl cl">
+									    </div>
+										<p ng-bind-html="value.content|htmlfil">
+										</p>
+									</div>
+								</div>
+							<div ng-if="value.chattype==4">
+								<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+								<span class="dp_t mg_auto public-chat-notice cl mb_20 f_12">{{value.content}}<b class="hand" tap='1' ysnoterun="com_list3.params.id">点击查看详情</b></span>
+							</div>
+							</li>
+							</ul>
+						</div>
+						<hr>
+						<span id="qqface"><img src="/images/smile.png" class="ml_40 mt_f4 hand"></span>
+						<span class="color_cf hand f_12" ng-if="com_detail3.data==1" yssendmsg chattype="3">发送完整简历</span>
+						<span class="color_cf hand f_12" ng-if="com_detail3.data==0" toggleshow="1">发送完整简历</span>
+						<span class="color_cf hand f_12 dpn" id="chattype18" yssendmsg chattype='18'>发送</span>
+						<aside>
+							<textarea id="editor" class="h_50 ml_40 mt_f4 mt_20 b_0 f_14 w_p88 mb_20" placeholder="输入内容" contenteditable="true" closeface></textarea>
+						</aside>
+						<span class="fr chat-sent-bt m_lr10">
+							<button type="" id="send" yssendmsg chattype="1">发送</button>
+						</span>
+						<span class="color_cf hand fr">按Enter键发送，按Shift+Enter键换行</span>
+		<!-- 简历未上传完整 -->
+						<div class="public-unpaper bgc_f" ng-if="toggleshow==1">							
+								<p class="t_c color_blue f_16 mt_40 fw_600">您的完整简历未上传</p>
+								<p class="t_c f_16 mt_40 fw_600">现在马上前往完善</p>
+								<span >
+									<a href="main.html#resume"><button class="fl color_white">前往</button></a>
+									<button class="fr" toggleshow="0">取消</button>
+								</span>							
+						</div>
+		<!-- 简历未上传完整 -->
+
+
+		<!-- 对方发送面试邀请 -->
+                        <div class="join-acceptornot bgc_f f_14" ng-if="tapshow==1">
+                        	<img src="images/close.png" class="fr mt_20 mr_40 hand" tapshow='0'>
+                       <!-- 接受成功后出现成功提示 -->
+                            <span class="h_76 dpb">
+                            	 <p class="cl t_c f_16 color_blue" ng-if="mk1==1">面试邀请接受成功</p>
+                                 <span class="noassept" ng-if="mk2==1"><img src="images/noassept.png" alt=""></span>
+                            </span>
+
+                        	<aside class="cl mt_40">
+                        	    <img src="images/time2.png" class="ml_40 mr_10">
+                        		<span class="color_cf">面试时间</span>
+                        		<span class="fr mr_40" ng-bind="com_list3.data.interviewtime"></span>
+                                <hr class="bor_d">
+                                <img src="images/phone.png" class="ml_40 mr_10">
+                        		<span class="color_cf">联系电话</span>
+                        <!--  招聘信息联系电话 -->
+                        		<span class="fr mr_40 hand" ng-if="mk1==0">点击同意后可查看</span>
+                        		<span class="fr mr_40" ng-if="mk1==1" ng-bind="com_list3.data.telephone"></span>
+                                <hr class="bor_d">
+                                <img src="images/home.png" class="ml_40 mr_10">
+                        		<span class="color_cf">面试地点</span>
+                        		<div class="ml_40 mr_40 mt_20 " ng-bind="com_list3.data.interview_address"></div>
+                                <hr class="bor_d">
+                                <img src="images/other.png" class="ml_40 mr_10">
+                        		<span class="color_cf">备注</span>
+                        		<div class="ml_40 mr_40 mt_20" ng-bind="com_list3.data.notes"></div>
+                                <hr class="bor_d">
+                        	</aside>
+                <!--   同意后消失 -->
+                        	 <span ng-if="mk1==0&&mk2==0">
+									<button class="fl color_white" selectrun="com_editadd2.params.isagree" value="1">同意</button>
+									<button class="fr" selectrun="com_editadd2.params.isagree" value="2">拒绝</button>
+									<button mkshow='mk1' class="dpn" yssendmsg chattype='5' id="tongyi" style="border: 1px solid #fff;background: #fff;"></button>
+									<button mkshow='mk2' class="dpn" yssendmsg chattype='6' id="jujue" style="border: 1px solid #fff;background: #fff;"></button>
+							 </span>	
+                        </div>
+		<!-- 对方发送面试邀请 -->
+
+					</aside>
+				</section>
+			</div>
+			<div class="public-content-right fr" closeface>
+				<section class="join-chatdatail-right">
+					<aside class="color_8f fl">
+						<p class="f_16" ng-bind="com_detail2.data.jobs_name"></p>
+						<hr class="little-line fl"></aside>
+					<aside class="cl">
+						<ul>
+							<li class="f_16 color_red" ng-bind="com_detail2.data.wage_cn"></li>
+							<li class="mt_20">
+								<span ng-bind="com_detail2.data.com_shortname"></span>
+								&nbsp|&nbsp
+								<span ng-bind="com_detail2.data.district_cn"></span>
+								&nbsp|&nbsp
+								<span ng-bind="com_detail2.data.experience_cn"></span>
+								工作经验&nbsp|&nbsp
+								<span ng-bind="com_detail2.data.education_cn"></span>
+							</li>
+						</ul>
+						<aside class="join-similar-jop t_c color_cf mt_40">
+							<button type="" class="w_p100"><a href="main.html#jobdetail">职位详情</a></button>
+						</aside>
+					</aside>
+					<aside class="join-hr-askfor color_8f">
+						<p class="f_16 mt_40">职位描述</p>
+						<hr class="little-line fl">
+						<ol class="f_14 mt_40" ng-bind="com_detail2.data.description">
+							<!-- <li>2-3年的Java经验，计算机相关专业。</li>
+							<li>2-3年的Java经验，计算机相关专业。</li>
+							<li>2-3年的Java经验，计算机相关专业。</li>
+							<li>2-3年的Java经验，计算机相关专业。</li> -->
+						</ol>
+					</aside>
+
+				</section>
+			</div>
+		</div>
+
+	</div>
+ 
+
+ </div>
+ 

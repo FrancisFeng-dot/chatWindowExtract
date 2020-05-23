@@ -1,0 +1,111 @@
+@charset "utf-8";			
+body{overflow-x: hidden;overflow-y:auto !important;height:100%;}
+/* 按钮icon */
+.apdelete_icon, .apedit_icon, .appass_icon, .padd_icon, .pdelete_icon, .pedit_icon, .pmore_icon, .pclose_icon,
+.pdowm_icon, .pfirst_icon, .pgo_icon, .plast_icon, .pnext_icon, .pprev_icon,.ppass_icon{background-image: url(../images/assignment.png)}
+.apdelete_icon{background-position: -60px -60px;}
+.apedit_icon{background-position: -51px -80px;}
+.appass_icon{background-position: -90px -26px;}
+.padd_icon{background-position: -75px -86px;}
+.pdelete_icon{background-position: -98px 0;}
+.pedit_icon{background-position: -90px -46px;}
+.pmore_icon{background-position: 0 -102px;}
+.ppass_icon{background-position: -84px -66px;}
+.pclose_icon{background-position: -30px -72px;}
+.pdowm_icon{background-position: -114px -37px;}
+.pfirst_icon{background-position: -42px 0;}
+.pgo_icon{background-position: 0 -42px;}
+.plast_icon{background-position: -30px -42px;}
+.pnext_icon{background-position: -60px -30px;}
+.pprev_icon{background-position: 0 -72px;}
+.ppass_icon{background-position: -84px -66px;}
+/* 公用的分页 */
+.page_bar{ padding: 20px; overflow: hidden}
+.page_bar .mit_page_content{padding-right: 30px;}
+.page_bar .mit_page_content span{color: #999;}
+.page_bar .mit_page_content em{font-style: normal;color: #242424;padding:0 4px;}
+.page_bar span.page_btn{width: 24px;height: 24px;display: inline-block;vertical-align: middle;margin-top: -5px;margin-right: 9px;cursor: pointer}
+.page_bar input[name="go_page"]{width: 55px;height: 20px;border:1px solid #d9dade;text-align: center;outline: none;}
+.page_bar .go_btn{color: #999;width: 24px; height: 24px;border-radius: 3px;display: inline-block;vertical-align: middle;font-size: 12px;line-height: 24px;text-align: center;margin-left: 10px;}
+.page_bar .enable_con{color: #32a4fc;}
+.page_bar .enable_con.active{color:#fe3000;}
+.page_bar .enable_con:hover,.enable_con:active{color:#fe3000;}
+.page_bar span.mgleft10{padding-left: 10px;display: inline-block;}
+/*公共提示框*/
+.hintContent{margin: 35px 0;font-size: 16px;padding-left: 50px;}
+.hintContent2{font-size:14px;color:#ff3811;line-height: 2;}
+/* 公共样式  */
+#blockMain table{table-layout: fixed;}			
+#blockMain table tbody td{text-overflow: ellipsis;-moz-text-overflow: ellipsis;overflow: hidden;  white-space: nowrap;}
+.history_active{background: #f7f9fa;}
+/* 评论列表 table */
+.comment_list{ position: relative; font-size: 14px;}
+.comment_list .menu_title{ position: absolute; top: 19px; left: 20px; border-left: 1px solid #ccc ;}
+.comment_list .menu_title li{font-size: 14px;display: inline-block;padding:0 40px;height: 45px;line-height: 45px;text-align: center;cursor:pointer; border-top: 1px solid #ccc; border-right: 1px solid #ccc; font-weight: bold  }
+.comment_list .menu_title li.menu_li_active{  border-top: 1px solid #52b2fc ; color: #52b2fc; font-weight: bold; border-bottom: 1px solid #fff; position: relative}
+.comment_list .menu_title li.menu_li_active:before{ content: ''; height: 2px; background: #52b2fc; width: 100%; display: inline-block; position: absolute; top: 0; left: 0}
+.comment_list .menu_li_end{border-right: 1px solid #ccc;}
+.view_list{ border: 1px solid #ccc}
+.comment_list{ padding: 18px 20px 50px 20px; background: #fff; margin-left: 15px}
+.comment_list .comment_name{ color:#32a4fc; font-size: 14px;}
+.comment_list .comment_name span{ color:#f8712f; padding-left: 4px;}
+.comment_list .comment_info { line-height: 30px; font-size: 14px;}
+.comment_list .comment_from{ margin-left: 30px;}
+.comment_list .comment_date_from{ color: #999}
+.comment_list .comment_option{ margin: 0 auto; text-align: center;}
+.comment_list .comment_option span { padding-left: 12px;}
+.comment_list .view_list thead td{ text-align: center; background: #fcfcfc}
+.comment_list .check_box{ text-align: center; vertical-align: top; padding-top: 5px;}
+.comment_list h1{ font-size: 16px; margin: 0 0 20px;}
+/* 评论列表 */
+.comment_list .title{ margin-top:30px; font-size: 18px}
+.comment_list_all{ margin-top:0;}
+.comment_list_all .search_box{ overflow: hidden; padding: 20px 0}
+.comment_list_all .search_box .table_ti_text{ float: left; padding-top:10px;}
+.comment_list_all .search_box .result_opt{ float: right}
+.comment_list_all .search_box .result_opt a{ float: right; }
+.comment_list_all{ padding:0 20px 30px 20px; border: 1px solid #ccc; }
+.comment_list_all .search_box .result_opt a{ padding: 8px 18px; border-radius: 6px; color: #fff;  background: #bfc7cd; margin-right: 10px;}
+.comment_list_all .search_box .result_opt a.opt_active{ background: #52b2fc;}
+/* 评论列表 */
+.comment_list  .verified_list{ margin-top: 45px;}
+.search_opt{ display: inline-block; margin-right: 20px;}
+.search_opt .search_file{ height: 31px; line-height: 31px; border: 1px solid #cbcbcb; vertical-align:top; padding: 0 !important;}
+.search_opt span{ background: #ebebeb; border-top: 1px solid #cbcbcb;border-bottom: 1px solid #cbcbcb;border-right: 1px solid #cbcbcb; display: inline-block; padding:7px 15px; vertical-align: top; cursor: pointer }
+.view_search { height: 32px !important; line-height: 32px !important;}
+/* 举报列表 */
+body .report_list{margin-top:0 !important; }
+.report_list .comment_date_from{ font-size: 12px; margin-top: 8px;}
+.report_list .report_why em{ padding: 2px 3px; border: 1px solid #999; margin-right: 8px}
+.report_list .report_why b{ font-weight: normal;color: #227ae5}
+.report_list .report_name{ margin-right: 8px;}
+/* 黑名单列表 */
+.black_list .table_ti_text em{ color: #227ae5}
+.black_list .table_box tbody td{ text-align: center}
+.black_list .comment_option span{ padding: 0}
+/* 敏感列表 */
+.sensitive_box{ position: relative}
+.sensitive_list .table_ti_msg{ color:#a9a9a9; font-size: 12px; margin-left: 8px;}
+.sensitive_list .table_box tbody td{ text-align: center}
+.add_import{ position: absolute; right: 50px; top: 12px;}
+.add_import a{ padding: 6px 16px; background: #fff; border: 1px solid #ccc; display: inline-block}
+.add_import a.add_link{ margin-right: 20px;}
+/* 基本设置 */
+.comment_list .set_list{ border: 1px solid #ebeced; padding: 0 20px 20px 20px; width:auto;}
+.comment_list .set_list h2{ border-bottom: 1px solid #ebeced; height: 48px; line-height: 48px; font-size: 14px;}
+ .site_info{ padding: 12px 0;}
+ .site_info label{ padding-right: 10px; font-size: 14px; width: 80px; display: inline-block}
+ .site_info .set_input{ width: 300px; height: 28px; line-height: 28px;}
+.comment_list .save_set{ margin-top: 15px}
+.comment_list .review_txt{ width: 110px; display: inline-block; vertical-align: top}
+.comment_list .review_info{ display: inline-block; vertical-align: top}
+.comment_list .review_info li{ margin-bottom: 10px;}
+/* 代码安装 */
+.comment_list .code_list{ margin-top: 45px;}
+.comment_list .source_id{ vertical-align: top; }
+.comment_list .code_list .copy_msg{ color: #b8b8b8; margin-top: 15px; font-size: 12px;}
+/* 安装包 */
+.sdk_list{ padding: 20px 30px}
+.sdk_list_a{background: url("../images/sdk_a.jpg") no-repeat}
+.sdk_list_b{background: url("../images/sdk_b.jpg") no-repeat; margin-left: 50px;}
+.sdk_list_a,.sdk_list_b{ width: 240px; height: 300px; display: inline-block; cursor: pointer}

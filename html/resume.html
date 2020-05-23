@@ -1,0 +1,632 @@
+
+<div style="background:#f8f8f8;" ng-controller="com_ctrl">
+	<header class="pulib-header" style="background:#fff;">
+	
+		<div class="public-nav">
+			<div class="logo"></div>
+			<div class="mt_f36 ml_130 f_14">
+			<div>
+				<a class="ml_30 fl hand" href="/main.html#/zpindex">求职</a>
+				 <span class="head-bt fr"  ng-if="we=='0'">
+				    <button class="dlbt" loginbox>登录</button>
+					<button registerbox>注册</button>
+				</span>
+			</div>							
+			<!-- 登陆后出现 -->
+			<span ng-if="we=='1'">
+				<aside class="fr join-user-top clblue">
+				<span><a href="/main.html#resume" target="blank">我的简历</a></span>
+				<span><a href="/main.html#chatlist" target="blank">聊天</a></span>
+				<span><a href="/main.html#job_manage" target="blank">我要招聘</a></span>
+				<span><a href="javascript:;" lgout lgnull>退出登录</a></span>
+				<img src="images/user.png" alt="">
+					  </aside>
+			</span>			
+			<!-- 登陆后出现 -->
+		 </div>
+		</div>
+			
+		
+	</header>
+	<div class="container-fluid public-content resume" ng-repeat="(key, value) in [com_detail.data]">		
+		<div class="main-wap" >
+			<div class="resume-left this-left mr_450">
+				<ul class="resume-list of_h">
+					<li class="li1 li-con">
+						<div class="person-top">
+							<span class="dpb span1">最后更新<span ng-bind="com_detail.data.createtime"></span></span>
+							<div ng-if="mk1==0">
+								<div class="person-common cl" >
+								<div class="person-left fl">
+									<div class="person-name">
+										<h3 class="fl name" ng-bind="value.fullname"></h3>
+										<img src="../images/sex.png" alt="" ng-show="com_detail.data.sex==2">
+										<img src="../images/man.png" alt="" ng-show="com_detail.data.sex==1">
+										<h3 class="fr h_con bjf hand" yseditadd="com_editadd" mkshow='mk1'>编辑</h3>
+									</div>
+									
+									<ul class="ul_con">
+										<li class="first"><span ng-bind="com_detail.data.experience_cn"></span>年工作经验</li>
+										<li class="second"><span ng-bind="com_detail.data.education_cn"></span>学历</li>
+										<li class="last" ng-bind="com_detail.data.current_cn"></li>
+									</ul>
+									<h4 class="f_14" ng-bind="com_detail.data.telephone"></h4>
+
+									
+								</div>
+								<div class="person-right fr">
+									<div>
+										<img ng-src="{{com_detail.data.photo_img}}" alt="" class="fl dpb">
+									</div>
+									
+								</div>
+							</div>
+							</div>
+							
+							<div class="add-center" ng-if="mk1==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">个人信息</h3></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="f_14">姓名</td>
+										<td class="td-con">当前的求职状态</td>
+									</tr>
+									<tr>
+										<td><input ng-model="com_editadd.params.fullname" class="dpb f_12 input-name" type="text"></td>
+										<td>
+											<select class="dpb slect-work" ng-model="com_editadd.params.current_cn">
+												<option>离职-随时到岗</option>
+												<option>在职-随时到岗</option>
+											</select>
+										</td>
+										
+									</tr>
+									<tr class="tr-do">
+										<td class="f_14">性别</td>
+										<td class="td-con">开始工作时间</td>
+									</tr>
+									<tr>
+										<td class="input-sex">
+											<input type="radio" id="c" name="sex" value="1" ng-model="com_editadd.params.sex">
+											<label for="c">男</label>
+											<input type="radio" id="d" name="sex" value="2" ng-model="com_editadd.params.sex">
+											<label for="d">女</label>
+										</td>
+										<td>
+											<select class="dpb slect-time" >
+												<option com_list.data="">2016</option>
+												<option com_list.data="">应届生</option>
+												<option com_list.data="">2017</option>
+												<option com_list.data="">2017年以前</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>联系方式</td>
+									</tr>
+									<tr>
+										<td><input class="input-contact" type="text" ng-model="com_editadd.params.telephone"></td>
+									</tr>
+									<tr class="handle">
+										<td></td>
+										<td>
+										 <button class="fr btn2" comtime="com_editadd">完成</button>
+										<button class="fr btn1" mkshow='mk1'>取消</button>
+											
+										</td>
+									</tr>
+								
+								</tbody>
+							</table>
+						
+							
+						</div>
+							
+						</div>
+						
+						<div class="person-bottom div_con">
+							<h5 class="f_16 fl">我的优势</h5>
+							<h3 class="fr h_con bjs hand" yseditadd="com_editadd" mkshow='mk2'>编辑</h3>
+						</div>
+						
+					</li> 
+					<li class="li2 li-con">
+						<p ng-bind="com_detail.data.specialty" ng-if="mk2==0">
+							
+						</p>
+						<div class="add-position" ng-if="mk2==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">我的优势</h3></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+									<tr class="tr-content">
+									<td></td>
+										<td><textarea name="" ng-model="com_editadd.params.specialty"></textarea></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td class="td-limit">
+											<span class="limit-span">56/140</span>
+										</td>
+									</tr>
+									<tr class="handle">
+										<td></td>
+										<td class="handle-second">
+										 <button class="fr btn2" comtime="com_editadd">完成</button>
+										<button class="fr btn1" mkshow='mk2'>取消</button>
+											
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="div_con">
+							<h5 class="f_16 fl">求职意向</h5>
+							<h3 class="fr h_con bjt hand" yseditadd="com_editadd" mkshow='mk3'>编辑</h3>
+						</div>
+						
+					</li>
+					<li class="li3 li-con" ng-repeat="(key, value) in [com_list2.data]">
+					    <div ng-if="mk3==0">
+					    	<ul class="ul_con work">
+					    		<li class="work-li1" ng-bind="com_detail.data.intention_jobs"></li>
+					    		<li class="work-li2" ng-bind="com_detail.data.wage_cn"></li>
+					    		<li class="work-li3" ng-bind="com_detail.data.trade_cn"></li>
+					    		<li class="work-li4" ng-bind="com_detail.data.district_cn"></li>
+					    	</ul>
+					    </div>
+						
+						<div class="add-intension" ng-if="mk3==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">添加求职意向</h3></th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="f_14">期望职位</td>
+										<td >薪资要求</td>
+									</tr>
+									<tr>
+										<td><input class="dpb f_12 input-work" type="text"  ng-model="com_editadd.params.intention_jobs"></td>
+										<td><input class="dpb f_12 input-money" type="text" ng-model="com_editadd.params.wage_cn"></td>										
+									</tr>
+									<tr>
+										<td class="f_14 td-city">城市</td>
+										<td class="f_14 td-city">所属部门</td>
+									</tr>
+									<tr>
+										<td><input class="dpb f_12 input-name input-city" type="text" e="text" ng-model="com_editadd.params.district_cn"></td>
+										<td>
+											<select class="dpb slect-work job" ng-model="com_editadd.params.trade_cn">
+												<option>不限</option>
+												<option>事业部</option>
+											</select>
+										</td>
+																			
+									</tr>	
+									<tr class="handle">
+										<td></td>
+										<td class="handle-third">
+										 <button class="fr btn2"  comtime="com_editadd">完成</button>
+										<button class="fr btn1" mkshow='mk3'>取消</button>
+											
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="div_con">
+							<h5 class="f_16 fl">工作经历</h5>
+							<h3 class="fr h_con bjfour hand" yseditadd="com_editadd" mkshow='mk4' ext="type" extv="3">添加</h3>
+						</div>
+					</li>
+					<li class="li4 li-con" ng-repeat="(key, value) in [com_list2.data]">
+						<div ng-if="mk4==0&&value.type==3" ng-repeat="(key, value) in com_list2.data">
+							<div class="div_con">
+								<h5 class="f_16 fl h5_con" ng-bind="value.name"></h5>
+								<span ng-bind="value.type_job"></span>
+								<h3 class="f_16 fr">
+									<span ng-bind="value.startyear"></span>
+									-
+									<span  theid="codeid" comdelone="com_del" class="hand">删除</span>
+									—
+									<span ng-bind="value.endyear"></span>
+									-
+									<span yseditadd="com_editadd" yseditadd="com_editadd" mkshow='mk4' class="hand" >编辑</span>
+								</h3>
+							</div>
+							<div>
+								<span ng-bind="value.jzb"></span>
+								<span>|</span>
+								<span ng-bind="value.type_job"></span>
+							</div>
+							<div>
+								<div>工作内容</div>
+								<p ng-bind="value.description"></p>
+							</div>
+							<div>
+								<span class="skill-tag" ng-bind="value.skill_tag"></span>
+							</div>
+
+						</div>
+						
+						<div class="add-work" ng-if="mk4==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">添加工作经历</h3></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="f_14">公司名称</td>
+										<td>职位类型</td>
+									</tr>
+									<tr>
+										<td><input class="dpb f_12 input-name" type="text" ng-model="com_editadd.params.name"></td>
+										<td>
+											<select class="dpb slect-work">
+												<option >选择职位类型</option>
+												<option>建筑师</option>
+												<option >工程师</option>
+												<option >建筑师</option>
+											</select>
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="f_14">职位名称</td>
+										<td>在职时间</td>
+									</tr>
+									<tr class="tr-write">
+										<td><input class="dpb f_12 input-name" type="text" ng-model="com_editadd.params.type_job"></td>
+										<td>
+											<input class="dpi f_12" type="text" placeholder=""  layerdateone="com_editadd.params.date">
+											<span>至</span>
+											<input class="dpi f_12" type="text" placeholder=""  layerdateone="com_editadd.params.date">
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="f_14">技能标签</td>
+										<td >所属部门</td>
+									</tr>
+									<tr>
+										<td><input class="dpb f_12 input-name" type="text" placeholder="enter加标签" ng-model="com_editadd.params.skill_tag"></td>
+										<td>
+											<input class="dpb f_12 input-name" type="text" ng-model="com_editadd.params.jzb">
+										</td>
+									</tr>	
+									<tr>
+										<td class="f_18">工作内容</td>
+										<td ></td>
+									</tr>
+									<tr class="tr-content">
+									<td></td>
+										<td><textarea name="" ng-model="com_editadd.params.description"></textarea></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td class="td-limit">
+											<span>56/140</span>
+										</td>
+									</tr>
+										<tr class="handle">
+										<td></td>
+										<td>
+										 <button class="fr btn2"  comtime="com_editadd" >完成</button>
+										<button class="fr btn1" mkshow='mk4' >取消</button>
+											
+										</td>
+									</tr>
+								
+								</tbody>
+							</table>
+						
+						</div>
+
+
+                  <!-- 项目经验 -->
+						<div class="div_con">
+							<h5 class="f_16 fl">项目经验</h5>
+							<h3 class="fr h_con bjfive hand" yseditadd="com_editadd" mkshow='mk5'  mkshow='mk4' ext="type" extv="1">添加</h3>
+						</div>
+					</li>
+					<li class="li5 li-con" ng-repeat="(key, value) in [com_list2.data]">
+						
+						<div ng-if="mk5==0&&value.type==1" ng-repeat="(key, value) in com_list2.data">
+							<div class="div_con">
+							    <div class="fl">
+							    	<h5 class="f_16 fl h5_con fl" ng-bind="value.name"></h5>|
+								    <span ng-bind="value.type_job"></span>
+							    </div>
+								
+								<h3 class="f_16 fr">	
+									<span ng-bind="value.startyear"></span>
+									-
+									<span  theid="codeid" comdelone="com_del" class="hand">删除</span>
+									—
+									<span ng-bind="value.endyear"></span>
+									-
+									<span yseditadd="com_editadd" mkshow='mk5' class="hand">编辑</span>
+								</h3>
+							</div>
+							<div>
+								<div>项目内容</div>
+								<p ng-bind="value.description"></p>
+							</div>
+							
+						</div>
+						
+						<div class="add-project" ng-if="mk5==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">添加项目经验</h3></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="f_14">项目名称</td>
+										<td>项目角色</td>
+									</tr>
+									<tr>
+										<td><input class="dpb f_12 input-name" type="text" ng-model="com_editadd.params.name"></td>
+										<td>
+											<input class="dpb f_12 input-name" type="text" placeholder="例如:工程师" ng-model="com_editadd.params.type_job">
+										</td>
+										
+									</tr>
+									<tr>
+										<td ></td>
+										<td>项目时间</td>
+									</tr>
+									<tr class="tr-write">
+										<td></td>
+										<td>
+											<input class="dpi f_12" type="text" placeholder="" layerdateone="com_editadd.params.date">
+											<span>至</span>
+											<input class="dpi f_12" type="text" placeholder="" layerdateone="com_editadd.params.date">
+										</td>
+										
+									</tr>
+								
+										
+									<tr>
+										<td class="f_18">项目描述</td>
+										<td ></td>
+									</tr>
+									<tr class="tr-content">
+									<td></td>
+										<td><textarea name=""  ng-model="com_editadd.params.description"></textarea></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td class="td-limit">
+											<span>56/140</span>
+										</td>
+									</tr>
+										<tr class="handle">
+										<td></td>
+										<td>
+										 <button class="fr btn2"  comtime="com_editadd">完成</button>
+										<button class="fr btn1" mkshow='mk5'>取消</button>
+											
+										</td>
+									</tr>
+								
+								</tbody>
+							</table>
+						
+						</div>
+
+
+						<div class="div_con">
+							<h5 class="f_16 fl">教育经历</h5>
+							<h3 class="fr h_con bjsix hand" yseditadd="com_editadd" mkshow='mk6' >添加</h3>
+						</div>
+					</li>
+					<li class="li6 li-con" ng-repeat="(key, value) in [com_list2.data]">
+							<div ng-if="mk6==0&&value.type==2" ng-repeat="(key, value) in com_list2.data">
+							<div class="div_con">
+							    <div class="fl">
+							    	<h5 class="f_16 h5_con" ng-bind="value.name"></h5>|
+								    <span ng-bind="value.education_cn"></span>
+							    </div>
+								
+								<h3 class="f_16 fr">	
+									<span ng-bind="value.startyear"></span>
+									-
+									<span class="hand" theid="codeid" comdelone="com_del">删除</span>
+									—
+									<span ng-bind="value.endyear"></span>
+									-
+									<span class="hand" yseditadd="com_editadd" mkshow='mk6'>编辑</span>
+								</h3>
+							</div>
+							<div ng-bind="value.type_job"></div>
+							<div>
+								<p ng-bind="value.description"></p>
+							</div>
+							
+						</div>
+						
+
+						<div class="add-education" ng-if="mk6==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">添加教育经历</h3></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="f_14">学校名称</td>
+										<td>专业名称</td>
+									</tr>
+									<tr>
+										<td><input class="dpb f_12 input-name" type="text" placeholder="例如:北京大学" ng-model="com_editadd.params.name"></td>
+										<td>
+											<input class="dpb f_12 input-name" type="text" placeholder="例如:计算机与技术" ng-model="com_editadd.params.education_cn">
+										</td>
+										
+									</tr>
+									<tr>
+										<td >学历</td>
+										<td>项目时间</td>
+									</tr>
+									<tr class="tr-write">
+										<td>
+											<select class="dpb slect-work" >
+												<option com_list.data="">中专及以下</option>
+												<option com_list.data="">高中</option>
+												<option com_list.data="">大专</option>
+												<option com_list.data="">本科</option>
+												<option com_list.data="">硕士</option>
+											</select>
+										</td>
+										<td>
+											<input class="dpi f_12" type="text" placeholder=""  layerdateone="com_editadd.params.date">
+											<span>至</span>
+											<input class="dpi f_12" type="text" placeholder=""  layerdateone="com_editadd.params.date">
+										</td>
+										
+									</tr>
+								
+										
+									<tr>
+										<td class="f_18">在校经历</td>
+										<td ></td>
+									</tr>
+									<tr class="tr-content">
+									<td></td>
+										<td><textarea name="" placeholder="例如:计算机与技术" ng-model="com_editadd.params.description">例如:主要负债公司数据接口</textarea></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td class="td-limit">
+											<span>56/140</span>
+										</td>
+									</tr>
+										<tr class="handle">
+										<td></td>
+										<td>
+										 <button class="fr btn2" comtime="com_editadd">完成</button>
+										<button class="fr btn1" mkshow='mk6'>取消</button>
+											
+										</td>
+									</tr>
+								
+								</tbody>
+							</table>
+						
+						</div>
+                
+						<div class="div_con">
+							<h5 class="f_16 fl">社区账号</h5>
+							<h3 class="fr h_con bjseven hand" yseditadd="com_editadd" mkshow='mk7'>添加</h3>
+						</div>
+					</li>
+					<li class="li7 li-con">
+					    <div ng-if="mk7==0">
+					    	<h6 class=" f_16" ng-bind="com_detail.data.email"></h6>
+					    	<h3 class="f_16 fr">	
+									
+									<span class="hand" theid="codeid" comdelone="com_del">删除</span>
+									<span class="hand" yseditadd="com_editadd" mkshow='mk7'>编辑</span>
+								</h3>
+					    </div>
+						
+
+						<div class="add-social" ng-if="mk7==1">
+							<table>
+								<thead>
+									<tr>
+										<th><h3 class="add-h3 f_16">添加社交账号</h3></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+									<tr>
+										<td><input class="dpb f_12 input-name" type="text" ng-model="com_editadd.params.email"></td>
+										<td>
+											
+										</td>
+										
+									</tr>
+								
+								   
+								</tbody>
+
+							</table>
+							<div class="handle">
+							     <button class="fr btn2" comtime="com_editadd">完成</button>
+										<button class="fr btn1" mkshow='mk7'>取消</button>
+								
+							</div>
+							
+						
+						</div>
+						
+					</li>
+				</ul>
+				
+			</div>
+			</div>
+			<div class="resume-right this-right">
+				<div class="resume-right-top ps_r">
+				    <a href="javascript:;" title="" class="download-img" id="down"><img src="../images/download.png" alt=""></a>
+					<div class="jianli of_h two" ng-if="com_detail.data.attachment">
+						<div class="jianli-top">
+							<h4 class="f_14">完整简历</h4>
+							
+						</div>
+						
+						<div class="jianli-bottom">
+
+							<h5 class="fl f_14" ng-bind="com_detail.data.attachmentname"></h5>
+							<h5 class="fr f_14 change">更改</h5>
+							<form id="resumefile"  method="post" accept-charset="utf-8">
+							<input type="file" formid="#resumefile" resumeupload="com_detail.data.attachment" name="file" value="" class="a-upload"> 
+						</form>
+						</div>
+						
+					</div>
+					<div class="jianli one" id= "uploadForm"  ng-if="!com_detail.data.attachment">
+						<a href="javascript:">上传完整简历</a>
+						<form id="resumefile"  method="post" accept-charset="utf-8">
+							<input type="file" formid="#resumefile" resumeupload="com_detail.data.attachment" name="file" value="" class="a-upload"> 
+						</form>						
+					</div>
+				 
+					
+                    <p class="fileerrorTip f_14 color_red ps_a" style="margin-left: 50px"></p>
+					<span>支持doc,docx,pdf,jpg</span>
+				</div>
+				<div class="resume-right-bottom">
+					<div class="bottom-left fl">
+						<img src="images/wechat.png" alt="">
+					</div>
+					<div class="bottom-right fl">
+						<h4>下载石头APP</h4>
+						<h5>随时随地的使用</h5>
+						<h6>DOWNLOAD</h6>	
+					</div>
+				</div>
+			</div>
+		
+
+	</div>
+		 
+</div>

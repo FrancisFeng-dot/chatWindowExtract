@@ -1,0 +1,464 @@
+<style type="text/css" media="screen">
+  	._citys { width: 450px; display: inline-block; border: 2px solid #eee; padding: 5px; position: relative; background: #fff;}
+	._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center; border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8; cursor: pointer; }
+	._citys0 { width: 100%; height: 34px; display: inline-block; border-bottom: 2px solid #56b4f8; padding: 0; margin: 0; }
+	._citys0 li { display: inline-block; line-height: 34px; font-size: 15px; color: #888; width: 80px; text-align: center; cursor: pointer; }
+	.citySel { background-color: #56b4f8; color: #fff !important; }
+	._citys1 { width: 100%; display: inline-block; padding: 10px 0; }
+	._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: #f5f5f5; color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
+	._citys1 a:hover { color: #fff; background-color: #56b4f8; }
+	.AreaS { background-color: #56b4f8 !important; color: #fff !important; }
+	#_citysheng li:nth-last-child(1){display:none !important;}
+	.search-choice{
+  		position:relative;
+	}
+	#PoPy{
+  		position:absolute;
+  		top: 162px;
+    	left: 415px;
+	}
+</style>
+<div class="of_ay" ng-controller="com_ctrl">
+	<div class="sc_nav">
+	    <div class="topLogo">
+	    	<div>
+		    	<img src="/images/ysshare.jpg" alt="" style="width: 47px;height: 47px;float: left;border-radius: 6px;">
+		    	<span style="font-size: 18px;color:#32a4fc;float: left;margin-left:9px;    margin-top: 40px;">石头</span>
+		    	<span  style="font-size: 14px;color:#32a4fc;margin-left:-36px;float: left;margin-top: 64px;font-weight: 100;">超级管理系统</span>
+		    </div>
+	    </div>
+	    <div class="admin-public-user">
+	    	<img src="../images/timg.jpg" class="dpb mg_auto mt_40">
+	    	<p class="t_c f_16 mt_20">权志龙</p>
+	    </div>
+		<ul class="sc_nav_list color_cf f_15 new-nav" >
+			<a href="/main.html#job_manage">
+				<li class="nav_li color_black">
+					<img src="../images/file.png"><span>职位管理</span>
+				</li>
+			</a>
+			<a href="/main.html#yushan_hero">
+				<li class="nav_li color_black">
+					<img src="../images/like.png"><span>石头牛人</span>
+				</li>
+			</a>
+			<a href="/main.html#communica">
+				<li class="nav_li color_black">
+					<img src="../images/chat.png"><span>沟通</span>
+				</li>
+			</a>
+			<a href="/main.html#company_info">
+				<li class="nav_li color_black admin-nav-bg">
+					<img src="../images/company.png"><span>公司信息</span>
+				</li>
+			</a>	   
+		</ul>
+	</div>
+	<div class="sc_main pd_top admin-public-top" >
+		<div class="header">
+			<div class="admin-public-content f_14">
+				<span>深圳石头</span>
+				<span class="fr">
+					<div class="pure-menu pure-menu-horizontal">
+					    <ul class="pure-menu-list lh_20">
+					        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">我要求职</a></li>
+					        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+					            <a href="#" id="menuLink1" class="pure-menu-link bor_blue lh_12">招聘管理</a>
+					            <ul class="pure-menu-children pt_10">
+					                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+					                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+					                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
+					            </ul>
+					        </li>
+					    </ul>
+					</div>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="sc_main mt_80 ps_f ml_226">
+		<div>
+			<div class="admin-public-content company" ng-if="tapshow==0&&(com_detail.data.certification==0||com_detail.data.certification==2||com_detail.data.certification==3)||com_detail.code==0">
+				<div class="company-top" >
+					<h2 class="t_c f_16 fw_b">第一步：选择认证材料类型上传(4选1)</h2>
+				</div>
+				<section class="company-card t_c fl">
+					<!-- <div style="margin: 8px 0 0 322px;height: 20px;width: 20px;">
+						<input id="checkbox1" type="radio" name="checkbox" mkshow="mk1">
+					</div> -->
+					<div class="card-img">
+						<img src="../images/card.png" alt="">
+					</div>
+					<div class="approve">
+						<button class="color_white bg_blue" toggleshow="1">认证须知</button>
+					</div>
+					<span class="color_gray">名片</span>
+				</section>
+				<section class="company-badge t_c fl company_con">
+					<!-- <div style="margin: 8px 0 0 322px;height: 20px;width: 20px;">
+						<input id="checkbox2" type="radio" name="checkbox" mkshow="mk2">
+					</div> -->
+					<div class="badge-img">
+						<img src="../images/badge.png" alt="">
+					</div>
+					<div class="approve">
+						<button class="color_white bg_blue" toggleshow="2">认证须知</button>
+					</div>
+					<span class="color_gray">工牌</span>
+				</section>
+				<section class="company-proof t_c fl">
+					<!-- <div style="margin: 8px 0 0 322px;height: 20px;width: 20px;">
+						<input id="checkbox3" type="radio" name="checkbox" mkshow="mk3">
+					</div> -->
+					<div class="proof-img img-con">
+						<img src="../images/proof.png" alt="">
+					</div>
+					<div class="approve">
+						<button class="color_white bg_blue" toggleshow="3">认证须知</button>
+					</div>
+					<span class="color_gray">在职证明</span>
+				</section>
+				<section class="company-license t_c fl company_con">
+					<!-- <div style="margin: 8px 0 0 322px;height: 20px;width: 20px;">
+						<input id="checkbox4" type="radio" name="checkbox" mkshow="mk4">
+					</div> -->
+					<div class="license-img img-con">
+						<img src="../images/lience.png" alt="">
+					</div>
+					<div class="approve">
+						<button class="color_white bg_blue" toggleshow="4">认证须知</button>
+					</div>
+					<span class="color_gray">营业执照</span>
+				</section>
+				<div class="company-bottom t_c">
+					<button class="color_white bg_blue" savekey="com_editadd.params.certificate_img" tapshowupload2="1" more="1">下一步</button>
+				</div>
+				<!--名片认证须知-->
+				<div class="chat-layerbox" ng-if="toggleshow==1" ng-form name="string">
+				    <div class="inadequacy-box bgc_f company-box">
+				        <img src="../../images/close.png" class="fr hand img-delect img-know" toggleshow="0">
+				    	<p class="f_16 cl t_c color_8f">名片</p>
+			   			<div class="card-img">
+							<img class="cards" src="../images/card.png" alt="">
+						</div>
+				    	<p class="mt_20 f_12 ml_87">
+				    		1.上传名片正面，保持清晰度可辨认			    		
+				    	</p>
+				    	<p class=" mt_20 f_12 ml_87">			    	
+				    		2.BOSS姓名应与名片一致接受“中文名”或“英文名”
+				    	</p>
+				    	<p class="mt_20 f_12 ml_87">			    	
+				    		3..BOSS注册的手机号应与名片一致			    		
+				    	</p>
+				    	<p class="mt_20 f_12 ml_87">			    		
+				    		4.不可上传电子截屏
+				    	</p>
+				    </div>				
+				</div>
+				<!--名片认证须知-->
+				<!--工牌认证须知-->
+				<div class="chat-layerbox" ng-if="toggleshow==2">
+				    <div class="inadequacy-box bgc_f company-box">
+				        <img src="../../images/close.png" class="fr hand img-delect img-know" toggleshow="0">
+				    	<p class="f_16 cl t_c color_8f">工牌</p>
+				   		<div class="badge-img">
+							<img  src="../images/badge.png" alt="">
+						</div>
+				    	<p class="mt_20 f_12 ml_58">
+				    		1.上传工牌正面，保证BOSS姓名，职务，头像，与个人信息一致	
+				    	</p>
+				    	<p class=" mt_20 f_12 ml_58">			    	
+				    		2.确保公章上的公司全称，与您个人信息中的公司完全一致
+				    	</p>
+				    	<p class="mt_20 f_12 ml_58">			    	
+				    		3.确保所有信息清晰可辨认			    		
+				    	</p>
+				    	<p class="mt_20 f_12 ml_58">			    		
+				    		4.不可上传电子截屏
+				    	</p>
+				    </div>				
+				</div>
+				<!--工牌认证须知-->
+				<!--在职认证须知-->
+				<div class="chat-layerbox" ng-if="toggleshow==3">
+				    <div class="inadequacy-box bgc_f company-box">
+				        <img src="../../images/close.png" class="fr hand img-delect img-know" toggleshow="0">
+				    	<p class="f_16 cl t_c color_8f">在职证明</p>
+				   		<div class="proof-img img-con">
+							<img  src="../images/proof.png" alt="">
+						</div>
+				    	<p class="mt_20 f_12 ml_25">
+				    		1.确保在职证明与模板一致			    		
+				    	</p>
+				    	<p class=" mt_20 f_12 ml_25">			    	
+				    		2.BOSS姓名，职务，手机号应与组织证明中一致
+				    	</p>
+				    	<p class="mt_20 f_12 ml_25">			    	
+				    		3.确保公司上的公司全称，与个人信息中的公司全称一致		    		
+				    	</p>
+				    </div>				
+				</div>
+				<!--在职认证须知-->
+				<!--营业执照认证须知-->
+				<div class="chat-layerbox" ng-if="toggleshow==4">
+				    <div class="inadequacy-box bgc_f company-box">
+				        <img src="../../images/close.png" class="fr hand img-delect img-know" toggleshow="0">
+				    	<p class="f_16 cl t_c color_8f">营业执照</p>
+				   		<div class="license-img img-con">
+							<img class="liences" src="../images/lience.png" alt="">
+						</div>
+				    	<p class="mt_20 f_12 ml_93 pt_30">
+				    		1.上传公司营业执照正面，确保所有信息清晰可见			    		
+				    	</p>
+				    	<p class=" mt_20 f_12 pl_20  ml_73">			    	
+				    		2.确保营业执照上的“公司全称”与您个人信息中的公司<br />全称完全一致
+				    	</p>
+				    </div>				
+				</div>
+				<!--营业执照认证须知-->
+			</div>
+			<!--认证资料状态-->
+			<div class="admin-public-content company-submit t_c" ng-if="tapshow==1">
+		        <div class="site_name site_info col-md-4" style="margin: 0 auto;float: none;margin-top: 88px;">
+		            <div id="uploader" class="dp_ib">
+		                <div id="fileList" class="uploader-list dp_ib">
+		                    <img width="350" height="200" ng-src="{{com_editadd.params.certificate_img}}" alt="">
+		                </div>
+		                <div class="btns dp_ib" name="picker">
+		                	<input type="file">
+		                </div>
+		            </div>
+		        </div> 
+		        <div style="clear: both;"></div>
+				<!--选择认证材料上传状态 - 返回上一步-->
+				<div>
+					<div class="btn-con">
+						<p class="color_red" ng-if="com_detail.data.certification==3">正在审核中...</p>
+						<div class="color_5d" ng-if="com_detail.data.certification==2">
+							<p class="color_red" >审核未通过...</p>
+							<p class="p-submit">审核未通过原因：经过我们的审核，您上传的信息有误未通过我们的审核.请修改完后重新上传</p>
+							<button class="upload" selectrun="com_editadd.params.codeid" value="{{com_detail.data.codeid}}">重新上传</button>
+						</div>
+						<div ng-if="com_detail.data.certification==0">
+							<button class="upload fl btn-first" tapshow=0>返回上一步</button>
+						    <button class="upload fl" comtime="com_editadd">确认上传</button>
+						    <button class="dpn" toggleshow="5" name="tanchuang1">点击进入弹窗</button>
+						</div>
+						<div ng-if="com_detail.data.certification==2">
+						    <button class="dpn" toggleshow="5" name="tanchuang1">点击进入弹窗</button>
+						</div>
+					</div>
+				</div>
+				<!--选择认证材料上传状态 - 返回上一步-->
+			 	<!--上传认证资料成功-->
+				<div class="chat-layerbox" ng-if="toggleshow==5">
+				    <div class="inadequacy-box bgc_f company-box5" style="padding:75px 30px;">
+				    	<p class="f_16 cl t_c color_8f fw_600">认证资料上传成功</p>
+				    	<p class="color_cf mt_20 fw_600 p_prompt">你的认证资料已上传成功，审核通过后才能填写公司信息，请留意平台通知</p>
+				    	<aside class="bt_1 mt_20 box_underline"></aside>
+				    	<aside class="mt_20">
+				    		<span class="notice-yes"><button class="br_none color_white" style="border-radius: 10px;width: 200px;height: 42px;" toggleshow="0">知道了</button></span>
+				    	</aside> 
+				    </div>				
+				</div>
+			<!--上传认证资料成功-->
+			</div>
+			<!--认证资料状态-->
+			<!--公司信息未填写-->
+			<div class="admin-public-content company" ng-if="tapshow==0&&com_detail.data.certification==1">
+				<div class="company-top">
+					<h2 class="t_c f_16">第二步：填写公司信息</h2>
+				</div>
+				<div class="company-message of_h">
+					<table>
+						<tbody>
+							<tr class="tr-first mt_16">
+								<td class="fr mr_158">
+									<span class="fr span-editor" toggleshow='6'>更换公司</span>
+									<span class="mr_24 span-editor" ng-if="mk5==1" mkshow="mk5" webupload2 savekey="com_editadd2.params">编辑</span>
+								</td>
+							</tr>
+							<tr>
+								<td>公司名称
+									<input  type="text" placeholder="请输入公司名称" ng-model="com_editadd2.params.companyname" ng-if="mk5==0">
+									<span class="color_gray span-message" ng-if="mk5==1" ng-bind="com_detail.data.companyname"></span>
+								</td>
+							</tr>
+							<tr class="tr-message"></tr>
+							<tr>
+								<td>公司规模
+									<input  type="text" placeholder="请输入公司规模" ng-model="com_editadd2.params.scale_cn" ng-if="mk5==0">
+									<span class="color_gray span-message" ng-if="mk5==1"  ng-bind="com_detail.data.scale_cn"></span>
+								</td>
+							</tr>
+							<tr class="tr-message"></tr>
+							<tr>
+								<td>公司logo</td>						
+							</tr>
+							<tr>
+								<td>	
+			<ul class="jbimg-box" ng-if="mk5==0">
+                <li class="addjb-img mr_10" id="fileList1">
+                    <img ng-src="http://api.yushan.com/upload/{{com_editadd2.params.logo}}" alt="" class="mt_20">
+                    <img src="/images/close-circled.png" alt="" class="dpn">
+                </li>
+                <li class="jb-upload-img dp_ib mt_20" name="picker" setstore="list=#fileList1&more=1&key=logo" key="upimg" pickerrun>
+                   <input type="file" style="width:84px;margin-left: 0px;">
+                </li>
+            </ul>
+						            <div class="mt_20" ng-if="mk5==1">
+						                <img width="100" height="100" ng-src="http://api.yushan.com/upload/{{com_detail.data.logo}}" alt="">
+						            </div>
+					            </td>			
+							</tr>
+							<tr class="tr-message"></tr>
+							<tr>
+								<td>公司官网
+									<input type="text" placeholder="请输入公司网址" ng-model="com_editadd2.params.website" ng-if="mk5==0">
+									<span class="color_gray span-message" ng-if="mk5==1" ng-bind="com_detail.data.website"></span>
+								</td>
+							</tr>
+							<tr class="tr-message"></tr>
+							<tr>
+								<td>公司环境</td>						
+							</tr>
+							<tr>
+								<td>
+									<div class="mt_20" ng-if="mk5==0">
+			<ul class="jbimg-box">
+                <li class="addjb-img mr_10"  ng-repeat="(key, value) in com_editadd2.params.cpmpany_envirarr">
+                    <img ng-src="{{value.img}}" alt="">
+                    <img src="/images/close-circled.png" alt="" delkey="cpmpany_envirarr" delimg="com_editadd2.params.cpmpany_envir">
+                </li>
+                <li class="jb-upload-img dp_ib" name="picker" setstore="list=#fileList4&more=3&key=cpmpany_envir" key="upimg" pickerrun>
+                    <input type="file" name="" value="" style="width:84px;margin-left: 0px;">
+                </li>
+            </ul>
+						               <!--  <img class="company-environment fl" ng-src="http://api.yushan.com/upload/{{com_editadd2.params.cpmpany_envir}}" alt="">
+						                <img class="company-environment environment-center fl" ng-src="http://api.yushan.com/upload/{{com_editadd2.params.cpmpany_envir}}" alt="">
+						                <img class="company-environment fr" ng-src="http://api.yushan.com/upload/{{com_editadd2.params.cpmpany_envir}}" alt="">
+						                <form id="file3" method="post" action="http://api.yushan.com/open/formupload" accept-charset="utf-8">
+						                    <input formid="#file3" type="file" name="file" imgupload="com_editadd2.params.cpmpany_envir"> 
+						                </form> -->
+						            </div>
+									<div class="mt_20" ng-if="mk5==1" ng-repeat="(key, value) in com_detail.data.cpmpany_envirarr">
+						                <img class="company-environment mr_10" ng-src="{{value.img}}" alt="">
+						            </div>
+								</td>
+							</tr>
+							<tr class="tr-message"></tr>
+							<tr>
+								<td>您的身份认证
+									<span class="color_red" ng-if="mk5==1&&com_detail.data.shenfen==2">(认证未通过)</span>
+									<span class="color_blue" ng-if="mk5==1&&com_detail.data.shenfen==1">(已认证)</span>
+								</td>						
+							</tr>
+							<tr>
+								<td>
+									<div class="mt_20" ng-if="mk5==0">
+			<ul class="jbimg-box" ng-if="mk5==0">
+                <li class="addjb-img mr_10" id="fileList2">
+                	<img width="100" height="100" ng-src="http://api.yushan.com/upload/{{com_editadd2.params.shenfen_img}}" alt="" class="mt_20">
+                    <img src="/images/close-circled.png" alt="" class="dpn">
+                </li>
+                <li class="jb-upload-img dp_ib mt_20" name="picker" setstore="list=#fileList2&more=1&key=shenfen_img" key="upimg" pickerrun>
+                   <input type="file" style="width:84px;margin-left: 0px;">
+                </li>
+                <div class="cl"></div>
+                <div class="mt_20">
+                <span class="color_red f_12">注意：更换您的身份证，以前认证的要重新认证，认证期间公司信息<br/>设为审核中状态一旦操作，不可撤回，请谨慎操作</span>
+                </div>
+            </ul>
+						            </div>
+						            <div class="mt_20" ng-if="mk5==1">
+						                <img class="company-environment" ng-src="http://api.yushan.com/upload/{{com_detail.data.shenfen_img}}" alt="">
+						            </div>
+								</td>
+							</tr>
+							<tr class="tr-message"></tr>
+							<tr>
+								<td class="fl"><span class="span-jianjie">公司简介</span></td>
+								<td class="fl">
+									<textarea name="" placeholder="多行输入" ng-model="com_editadd2.params.contents" ng-if="mk5==0"></textarea>
+									<span class="color_gray span-message" ng-if="mk5==1" ng-bind="com_detail.data.contents"></span>
+								</td>
+							</tr>
+							<tr class="tr-message cl"></tr>
+							<tr>
+								<td>公司地址
+									<input ng-model="com_editadd2.params.district_cn" id="city"  ng-click="city($event)" type="text" name="searchCom" class="set_input" pname="{{com_editadd2.params.district_cn}}" cname="" placeholder="点击选择地址" ng-if="mk5==0">
+									<input id="adds" ng-model="com_editadd2.params.address" type="text" placeholder="请输入详细地址"  class="set_input" ng-if="mk5==0">
+									<span class="color_gray span-message" ng-if="mk5==1">{{com_detail.data.district_cn}}&mdash;{{com_detail.data.address}}</span>
+								</td>
+							</tr>
+							<tr class="tr-message"></tr>
+							<!-- <tr class="m_tr">
+								<td>
+									<div class="mt_20">
+									<img class="place-map" ng-src="http://api.yushan.com/upload/{{com_editadd2.params.map_x}}" alt="">
+					                <form id="file4" method="post" action="http://api.yushan.com/open/formupload" accept-charset="utf-8">
+					                    <input formid="#file4" type="file" name="file" imgupload="com_editadd2.params.map_x"> 
+					                </form>
+									</div>
+								</td>
+							</tr> -->
+							<tr class="send-photo"><td>认证照</td></tr>
+							<tr>
+								<td>
+										<!-- <div class="card-img">
+											<img class="cards" ng-src="/images/card.png" alt="">
+										</div>
+										<div class="approve">
+											<button class="color_white bg_blue">上传</button>
+										</div> -->
+										<!-- <span class="color_gray">名片</span> -->
+			<ul class="jbimg-box" ng-if="mk5==0">
+                <li class="addjb-img mr_10" id="fileList3">
+                	<img width="100" height="100" ng-src="http://api.yushan.com/upload/{{com_editadd2.params.certificate_img}}" alt="" class="mt_20">
+                    <img src="/images/close-circled.png" alt="" class="dpn">
+                </li>
+                <li class="jb-upload-img dp_ib mt_20" name="picker" setstore="list=#fileList3&more=1&key=certificate_img" key="upimg" pickerrun>
+                   <input type="file" style="width:84px;margin-left: 0px;">
+                </li>
+            <div class="cl"></div>
+                <div class="mt_20">
+                <span class="color_red f_12">注意：更换您的认证照，以前认证的要重新认证，认证期间公司信息<br/>设为审核中状态一旦操作，不可撤回，请谨慎操作</span>
+                </div>
+            </ul>
+									<section class="company-card card-upload t_c" ng-if="mk5==1">
+										<img class="cards" ng-src="http://api.yushan.com/upload/{{com_detail.data.certificate_img}}" alt="" style=" width: 299px;height: 261px;">
+									</section>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn-save btnSave" selectrun="com_editadd2.params.codeid" value="{{com_detail.data.codeid}}" mkshow="mk5" ng-if="mk5==0">保存</button>	
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!--更换公司弹窗-->
+				<div class="chat-layerbox company-notice" ng-if="toggleshow==6">
+				    <div class="inadequacy-box notice-box bgc_f">
+				        <img src="../../images/close.png" class="fr mt_20 hand" toggleshow='0'>
+				    	<p class="f_18 cl t_c color_8f fw_600 ml_54">更改公司注意事项</p>
+				     	<!-- 不合适、待沟通在此处切换 -->
+				    	<p class="mt_40 color_8f fw_600 ml_54">1.您发布的职位将视情况予待审核或者删除处理</p>
+				    	<p class="color_8f mt_20 fw_600 ml_54">2.您若已认证，认证状态将被取消，需要重新验证</p>
+				    	<p class="color_8f mt_20 fw_600 ml_54">3.公司信息会被清空，需要重新填写</p>
+				    	<p class="color_red mt_20 fw_600 ml_54">4.一旦操作成功，将不能撤回，请谨慎操作</p>
+				    	<div class="color_cf laynotice ml_54">
+				    		<span class="span-btn">
+				    			<button class="br_none color_white fl mt_40" toggleshow='0'>取消</button>
+				    			<button class="br_none color_white mt_40 fl" comtime="com_del">更换公司</button>
+				    		</span>
+				    	</div>
+				    </div>				
+				</div>	
+				<!--更换公司弹窗-->
+			</div>
+			<!--公司信息未填写-->
+		</div>
+	</div>
+</div>

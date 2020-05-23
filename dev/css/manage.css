@@ -1,0 +1,211 @@
+/*职位管理页面开始*/
+.send-position{
+    border:none;
+    padding:0 22px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;   
+    background:#32abfe;
+    color:#fff;
+  
+}
+.send-position img{margin-left:30px;}
+.ml_14{margin-left:-14px;}
+.no-slect{height:30px;}
+.select{ height: 30px;line-height:30px;}
+.span_color{color:#2facfc;}
+.span_red{color:#f35c4b;}
+.select li:hover{color:#2facfc;}
+.send-position img{margin-left:19px;}
+.manage .btn-group{margin-left: -51px;}
+.web{font-size:16px;font-weight:800;}
+.span-watch{margin: 0 45px 0 40px;}
+.aside{margin-top: 20px;}
+.admin-chat-topnav ul:first-child li {
+ margin-right:14px;
+    
+}
+.manage-topnav{margin:-17px 0 -13px;}
+.span-chat{margin:0 39px 0 13px;}
+.div-online{margin-left:21px;}
+.fb{padding-bottom: 17px;}
+.change-position{margin-left:5px;}
+.position-status{margin:0 -13px 0 17px;}
+.more-underline{margin:10px 0;}
+/*点击发布的样式*/
+.publish-position{background:#fff;}
+.position-center table{width:100%;}
+.position-center tr{display:block;width:100%;}
+.tr_1{margin-top:70px;}
+.tr_1 td{margin-top:-20px;}
+.tr-con{padding:0 0 12px 45px;}
+.span-prompt{margin-right:33px;color:#cfcfcf;}
+.tr_2{margin:30px 0 19px 164px;}
+.span-padding{padding:0 62px 0 15px;}
+.tr_4{padding-top:37px;}
+.tr_input{margin:0 0 0px 164px;}
+.span_prompt{display:none;}
+.tr_input input,.tr_input select,.tr_input textarea{margin-left:22px;width:200px;padding-left:16px;border:1px solid #cfcfcf;}
+.tr_input select{height:24px;}
+.tr_prompt{height:20px;margin-left:248px;}
+.tr_input .work-place{width:425px;}
+.tr_input .money-need{width:100px;}
+.tr_10{padding-top:12px;}
+.tr_11{padding-top:58px;}
+.tr_input textarea{width:425px;height:200px;}
+.span-limit{color:#cfcfcf;margin-left:16px;}
+.position-span{margin-top: -95px;}
+.tr_15{padding-top:54px;}
+.tr_16{padding:65px 0 65px 423px;}
+.btn-save{width:100px;height:32px;background:#2c9ae9;color:#fff;border: none;border-radius:3px;}
+.img-delect{width:20px;height:20px;margin-right:30px;}
+.manage-box{
+	width:485px;
+	height:391px;
+    margin:13% auto;
+}
+.inadequacy-box input{
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid #32abfd;
+    padding: 10px 16px;
+    margin: 0px 0 0 43px;   
+    width:80%;
+}
+.p-email{margin:44px 0 0 29px;}
+.btn-c{width:200px;height:42px;margin:30px 0px 0px 102px;}
+/*职位管理页面结束*/
+
+
+/*公司信息页面开始*/
+
+.company-top h2{margin-top: 0;}
+.company section{width:360px;height:360px;background:#f3f3f3;margin:24px 50px;overflow:hidden;box-shadow: 2px 0 4px 4px #cfcfcf;}
+.chatbox-select.one{margin:8px 0 0 322px;height:20px;width:20px;}
+.approve button{width:140px;height:32px;border:none;border-radius:10px;margin-bottom: 20px;}
+.color_gray{color:#cfcfcf;}
+.bg_blue{background:#2c9ae9;}
+.card-img{margin:76px 0 48px 67px;}
+.card-img img{height:114px;width:225px;border-radius:10px;display:block;}
+/*.company-card{background:#f3f3f3;}*/
+.company .company_con{margin-right:0;}
+{font-size:14px;}
+
+.badge-img{margin:28px 0 29px 117px;}
+.badge-img img{width:128px;height:180px;border-radius:10px;display:block;}
+.img-con{ margin: 48px 0 33px 32px;}
+.img-con img{width: 221px; height: 160px; border-radius:10px;display:block;margin-left:35px;}
+.company-bottom button{
+    margin-top: 44px;
+    width: 217px;
+    height: 42px;
+    border: none;
+    border-radius:8px;
+}
+.company-box{width: 525px;height: 475px;border:1px solid #cfcfcf;border-radius:8px;}
+.company-box .card-img{margin:0 0 0 48px;}
+.company-box .card-img .cards{width:360px;height:193px;border-radius:10px;}
+.company-box .badge-img{margin-left:167px;}
+.company-box .img-con{width:404px;height:171px;margin-left:29px;box-shadow: 2px 0 4px 4px #cfcfcf;}
+.company-box .license-img{box-shadow:0px 0 0px 0px #cfcfcf;}
+.company-box .img-con img{
+    width: 221px;
+    height: 160px;
+    border-radius: 10px;
+    display: block;
+    margin-left: 93px;
+}
+.company-box .img-con .liences{
+    width:340px;
+    height:219px;
+    margin:-31px 0 0 38px;
+}
+.ml_87{margin-left:87px;}
+.ml_58{margin-left:58px;}
+.ml_25{margin-left:25px;}
+.ml_93{margin-left:93px;}
+.ml_73{margin-left:73px;}
+.pt_30{padding-top:30px;}
+.pl_20{line-height:20px;}
+.color_5d{color:#5d5d5d5d;}
+.img-know{margin: 7px -12px 0 0;}
+.company-box5{width: 485px;height: 370px;margin: 10% auto;}
+.notice-yes .sure{background:#fff;border:none;border:1px solid #cfcfcf;}
+.p_prompt{
+    width: 251px;
+    margin-left: 81px;
+    line-height:21px;
+}
+.box_underline{width:114%;margin:28px 0 0 -30px;}
+.notice-yes .sureSend{margin-top:20px;border-radius:10px;}
+.company-submit,.company-submited{
+    background: #fff;
+    margin-top: -20px;
+    overflow: hidden;
+    min-height:562px;
+    _height:562px;
+}
+.btn-modify{
+    width: 82px;
+    border: 1px solid #cfcfcf;
+    margin-left: -32px;
+}
+.btn-con{margin-top:26px;}
+.upload.btn-first{margin:40px 71px 0 333px;}
+.img-submit{margin:54px 0 27px 42%;}
+.p-submit{margin:22px 0 0;}
+.p-submits{padding-left:116px;}
+.upload{border: 1px solid #2c9ae9;
+    border-radius: 10px;
+    width: 97px;
+    height: 26px;
+    margin: 40px 0 188px 0px;
+}
+.company-message{background:#fff;margin-top:30px;}
+.company-message table{margin-left:100px;}
+.tr-first{height:60px;line-height:60px;}
+.company-message table tr{margin-left:20px;display:block;width:100%;}
+.company-message table tr input{margin-left:20px;width:350px;border:1px solid #cfcfcf;}
+.tr-message{height:36px;}
+.div-upload{width: 70px; height: 70px; background: #f3f3f3;border: 1px dotted #cfcfcf;}
+.company-message table textarea,.company-message table p{margin-left: 20px;
+    width: 420px;
+    height: 200px;}
+.company-message table textarea{border:1px solid #cfcfcf;}
+.company-message .m_tr{margin-left:0px;}
+.span-jianjie{margin-top:-98px;}
+.place-map{
+    width: 630px;
+    height: 235px;
+    border: 1px solid #cfcfcf;
+}
+.place-map span{padding:12px 0 12px 26px;}
+.send-photo{margin:20px 0;}
+.company-card.card-upload{width: 298px;height: 260px;margin: 4px 0 0 80px;}
+.company-card.card-upload .card-img{width: 210px;height: 108px;margin: 36px 0 20px 43px; }
+.btnSave{margin: 90px 0 272px 299px;
+    width: 122px;
+    height: 34px;
+}
+.span-message{margin-left:20px;}
+.span-editor:hover{cursor:pointer;color:#3f9feb;}
+/*.span-editor1{margin-right: -19px;}*/
+.company-logo{width:135px;height:115px;border:1px solid #000;}
+.company-environment{width:182px;height:110px;margin-right: 80px;}
+.company-environment:last-child{margin-right: 0px;}
+.environment-center{margin-right:57px;}
+.company-message table p{height:110px;}
+.span-jianjie1{margin-top: -61px;}
+.span-jianjie2{margin-top: -91px;}
+.company-message .p-nice{height:168px;border:1px solid #cfcfcf;padding:20px 30px;}
+.company-notice{  
+    left:2px;
+    background: rgba(0, 0, 0, 0);
+}
+.notice-box{background:#f3f3f3;height:425px;width:516px;margin:13% auto;}
+.laynotice .span-btn button{width:100px;height:32px;background:#32abfd;border-radius:5px;}
+.laynotice .span-btn button:last-child{margin-left:112px;}
+.ml_54{margin-left:54px;}
+/*公司信息页面结束*/
+ 
+

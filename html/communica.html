@@ -1,0 +1,414 @@
+<div class="of_ay" ng-controller="com_ctrl">
+	<div class="sc_nav">
+	    <div class="topLogo">
+	    	<div>
+		    	<img src="/images/ysshare.jpg" alt="" style="width: 47px;height: 47px;float: left;border-radius: 6px;">
+		    	<span style="font-size: 18px;color:#32a4fc;float: left;margin-left:9px;    margin-top: 40px;">石头</span>
+		    	<span  style="font-size: 14px;color:#32a4fc;margin-left:-36px;float: left;
+	    margin-top: 64px;font-weight: 100;">超级管理系统</span>
+		    </div>
+	    </div>
+	    <div class="admin-public-user">
+	    	<img src="../images/timg.jpg" class="dpb mg_auto mt_40">
+	    	<p class="t_c f_16 mt_20">权志龙</p>
+	    </div>
+		<ul class="sc_nav_list color_cf f_15 new-nav" >
+		   <a href="/main.html#job_manage"><li class="nav_li color_black"><img src="../images/file.png"><span>职位管理</span></li></a>
+		   <a href="/main.html#yushan_hero"><li class="nav_li color_black"><img src="../images/like.png"><span>石头牛人</span></li></a>
+		   <a href="/main.html#communica"><li class="nav_li color_black admin-nav-bg"><img src="../images/chat.png"><span>沟通</span></li></a>
+		   <a href="/main.html#company_info"><li class="nav_li color_black"><img src="../images/company.png"><span>公司信息</span></li></a>	
+		</ul>
+	</div>
+	<div class="sc_main pd_top admin-public-top" >
+		<div class="header">
+			<div class="admin-public-content f_14">
+				<span>深圳石头</span>
+				<span class="fr">
+					<div class="pure-menu pure-menu-horizontal">
+					    <ul class="pure-menu-list lh_20">
+					        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">我要求职</a></li>
+					        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+					            <a id="menuLink1" class="pure-menu-link bor_blue lh_12">招聘管理</a>
+					            <ul class="pure-menu-children pt_10">
+					                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+					                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+					                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
+					            </ul>
+					        </li>
+					    </ul>
+					</div>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="sc_main mt_80 ps_f ml_226" style="padding-bottom: 80px;">
+		<div class="of_ay">
+			<div class="admin-public-content">
+				<nav class="admin-chat-topnav bgc_f f_14 color_8f lh_50">
+					<ul class="clblue">
+						<li class="{{tapshow==0?'color_blue':''}}" value="" selectrun="com_list4.params.type">全部</li>
+						<li value="1" selectrun="com_list4.params.type">待确认</li>
+						<li value="2" selectrun="com_list4.params.type">不合适</li>
+						<li value="3" selectrun="com_list4.params.type">请求简历</li>
+						<li value="4" selectrun="com_list4.params.type">邀请面试</li>
+					</ul>
+					<aside class="h_100">        
+						<div class="pure-menu pure-menu-horizontal">
+							<ul class="pure-menu-list f_14 fr">
+								<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+									<a id="menuLink2" class=" mt_8 lh_20 color_blue" value="" selectrun="com_list4.params.jobs_name">全部职位<img src="../images/down.png" class="ml_16"></a>
+									<ul class="pure-menu-children pt_10" style="width: 108px;top: 50px;left: -12px;" id="jobs">
+										<li class="pure-menu-item w_p100 lh_20" value="" selectrun="com_list4.params.jobs_name">
+											<span class="pure-menu-link">全部职位</span>
+										</li>
+										<li class="pure-menu-item w_p100 lh_20" value="{{value.jobs_name}}" selectrun="com_list4.params.jobs_name" ng-repeat="(key,value) in com_list2.data">
+											<span ng-bind="value.jobs_name" class="pure-menu-link"></span>
+										</li>
+									</ul>
+								</li>
+								<li class="pure-menu-item pure-menu-selected">
+									<a class=" lh_20 mt_8 color_blue">
+										<span ng-if="toggleshow==0" toggleshow="1">筛选</span>
+										<span ng-if="toggleshow==1" toggleshow="0">收起</span>
+										<img src="../images/down.png" class="ml_16">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</aside>
+				</nav>
+				<aside class="bgc_f h_p100 w_p100"  ng-if="toggleshow==1">
+					<nav class="admin-chat-topnav bgc_f f_14 color_8f" style="height: 100px;">
+						<span class="fl">
+							<span class="lh_50 ml_42">薪水：</span>
+						</span>
+						<ul class="chat-no-bt lh_50" id="wage">
+							<li class="ml_20 color_blue2 bx-bt" value="" style="padding: 0px 8px;margin-top: 12px;line-height: 23px;color: #fe571e !important;" selectrun="com_list4.params.salary">不限</li>
+							<li value="{{value.c_id}}" selectrun="com_list4.params.salary" ng-repeat="(key,value) in com_list3.data">{{value.c_name}}<span class="ml_16">|</span></li>
+						</ul>
+					</nav>
+					<div class="bt_1 mb_10"></div>
+					<nav class="admin-chat-topnav bgc_f f_14 color_8f mt_f10">
+						<span class="fl">
+							<span class="lh_50">经验：</span>
+						</span>
+						<ul class="chat-no-bt lh_50" id="experience">
+							<li class="ml_20 bx-bt color_blue2" style="padding: 0px 8px;margin-top: 12px;line-height: 23px;color: #fe571e !important;"　value="" selectrun="com_list4.params.experience">不限</li>
+							<li value="{{value.c_id}}" selectrun="com_list4.params.experience" ng-repeat="(key,value) in com_list5.data">{{value.c_name}}<span class="ml_16">|</span></li>
+						</ul>
+					</nav>
+				</aside>
+				<div class="mt_20 bgc_f h_p100 of_ay">
+				    <div class="public-content-left fl bgc_f h_763 admin-userlist" style="width: 32%;overflow-y: scroll;">
+				         <aside class="h_40 bg_e chat-searchbox ps_r">
+				         	<input type="text" class="br_none cl" placeholder="搜索联系人" ng-model="com_list4.params.keyword">
+				            <img src="/images/fangda.png" class="ps_a" style="width: 18px;height: 18px;line-height: 18px;right:72px;" comtime="com_list4">
+				         	<button class="br_none fr" mkshow="mk2" style="background:#fff;" id="bianji">编辑</button>
+				         </aside>
+			       		<div>
+					        <ul class="chatbox-userlist of_ay h_p90" toggshow="0" style="width: 100%;overflow-y: auto;" closeface>
+					         	<li class="bt_1 hand" yschatrun="com_detail" touserid="{{value.expertid}}" setstore="{{value.jobid}}" key="jobid" ng-repeat="(key, value) in chatsidebar" name="chat">
+					         		<div style="position: relative;"> 
+					         			<img ng-src="{{value.headimg}}" class="company-img fl" style="margin:21px;">
+										<h6 ng-if="value.weidu>0" class="weidu1">{{value.weidu}}</h6>
+					         		</div>
+					         		<span class="fl mt_28">
+					         			<p class="f_14">{{value.nickname}}&mdash;{{value.jobs_name}}</p>
+					         			<span class="more_notshow1 color_8f w_140 h_43 f_12" ng-bind-html="value.content|htmlfil"></span>
+					         		</span>
+					         		<span class="fr color_cf f_12" ng-bind="value.createtime"  style="margin-top: 24px;margin-right: 15px;"></span>
+					         		<span selectrun="com_del.params.chatuser" value="{{value.chatuser}}" name="delone" ng-if="mk2==1" class="fr f_12 mt_54 mr_f34 color_blue3" setstore="{{value.jobid}}" key="jobid2">删除</span>
+					         	</li>
+					         </ul>
+			         	</div>		    	
+				    </div>
+					<div class="public-content-left fl bgc_f" style="width: 68%">
+						<section class="dpn" id="chatbox">
+							<aside class="f_14 publi-chatbox-top">
+							    <div class="fr mb_10">
+							        <!-- 点击选中可添加这个类color_blue -->
+							    	<span class="color_cf ml_16 hand tabname {{toggshow==0?'color_blue':''}}" toggshow="0">聊天</span>
+							    	<span class="color_cf ml_16 hand tabname {{toggshow==1?'color_blue':''}}" toggshow="1">微简历</span>
+							    	<span class="color_cf ml_16 hand tabname {{toggshow==2?'color_blue':''}}" toggshowupload="2" id="wanzheng">完整简历</span>
+							    </div>						
+							</aside>
+							<div class="bt_1 cl"></div>
+							<aside class="publi-chatbox cl contentname" ng-if="toggshow==0" style="position: relative;">
+								<div class="newmore" ng-if="com_list.newsnum>0">
+									<img src="/images/jiazai.png">
+									{{com_list.newsnum}}条新消息提醒
+									<img src="/images/cha.png" id="cha1">
+								</div>
+								<div class="h_400" style="position: relative;">
+									<div class="loadmore dpn">
+										<img src="/images/jiazai.png">
+										加载更多
+										<img src="/images/cha.png" id="cha2">
+									</div>
+									<!-- 对方的基本信息 -->
+									<div class="hand duihua1">
+									   	<aside class="fl mr_10">
+									   		<div style="text-align: center;"><img ng-src="{{com_list.resume.photo_img}}" style="width: 50px;height: 50px;"></div>
+									   		<div class="color_red bx-bt f_12 mt_20" ng-bind="com_list.resume.wage_cn"></div>
+									   	</aside>
+									   	<aside class="color_8f f_14 lh_26">
+									   	   	<div>
+										   	   	<span ng-bind="com_list.resume.fullname"></span>
+									   	   	   	<span>|</span>
+									   	   	   	<span>期望职位</span>
+									   	   	   	<span  ng-bind="com_list.resume.intention_jobs"></span>
+									   	   	</div>
+									   	   	<div>
+									   	   	   	<span ng-bind="com_list.resume.district_cn">深圳</span>
+									   	   	   	<span>|</span>
+									   	   	   	<span ng-bind="com_list.resume.experience_cn"></span>工作经验
+									   	   	   	<span>|</span>
+									   	   	   	<span ng-bind="com_list.resume.education_cn"></span>学历
+									   	   	   	<span>|</span>
+									   	   	   	<span ng-bind="com_list.resume.current_cn"></span>
+									   	   	</div>
+									   	   	<div>
+									   	   	   	<span ng-bind="com_list.resume.formerco"></span>
+									   	   	   	<span class="color_blue" ng-bind="com_list.resume.former"></span>
+									   	   	</div>
+									   	   	<div>
+										   	   	<span>沟通中，
+											   	   	<span ng-bind="com_list.resume.createtime"></span>
+											   	   	<span ng-if="com_list.resume.resume_from_pc==1">通过PC端</span>向您的职位
+											   	   	<span ng-bind="com_list.jobname"></span>发起沟通
+										   	   	</span>
+									   	   	</div>
+									   	</aside>	
+									</div>
+									<ul id="chatwindow" closeface style="padding-top: 98px;">
+										<div class="dpn" id="quan" style="width: 50px; margin: 0 auto;"><img src="/images/loading2.gif"></div>
+										<span class="dp_t mg_auto public-chat-notice cl mb_20 f_12" id="bottomline" style="background: #fff;color:#75bffc;"></span>
+										<!-- 对方的基本信息 -->
+										<li ng-repeat="(key, value) in datalist">
+										<div ng-if="value.chattype==1">
+											<div ng-if="value.to.uid==com_list.uid">
+											   	<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+												<div class="company-sent">
+												    <div>
+												    	<img ng-src="{{value.from.avatar}}" class="company-img fl cl">
+												    </div>
+													<p ng-bind-html="value.content|htmlfil">
+													</p>
+												</div>
+											</div>
+											<div ng-if="value.from.uid==com_list.uid">
+											   	<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+												<div class="user-sent fr w_p100">
+													<p ng-bind-html="value.content|htmlfil">
+													</p>
+												</div>
+											</div>
+										</div>
+										<div ng-if="value.chattype==2||value.chattype==3||value.chattype==4||value.chattype==5||value.chattype==6||value.chattype==7||value.chattype==8">
+											<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+											<span class="dp_t mg_auto public-chat-notice cl mb_20 f_12" ng-bind="value.content"></span>
+										</div>
+										<div ng-if="value.chattype==18">
+											<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+											<div class="company-sent">
+												<div>
+												   	<img ng-src="{{value.from.avatar}}" class="company-img fl cl">
+												</div>
+												<p ng-bind-html="value.content|htmlfil">
+												</p>
+											</div>
+										</div>
+										<div ng-if="value.chattype==19">
+											<span class="createtime" ng-if="value.timeshow==1" ng-bind="value.createtime"></span>
+											<div class="user-sent fr w_p100">
+												<p ng-bind-html="value.content|htmlfil">
+												</p>
+											</div>
+										</div>
+										</li>
+									</ul>
+								</div>
+								<hr>
+								<span id="qqface"><img src="/images/smile.png" class="ml_40 mt_f4 hand" id="face" clickFace></span>
+								<span class="color_cf hand" yssendmsg chattype="2">求简历</span>
+								<span class="invite color_cf hand ml_16" tapshow="3">邀请面试</span>
+								<span class="color_cf hand ml_16 dpn" id="chattype19" yssendmsg name="send" chattype='19'>发送</span>
+								<span class="fr mr_40">
+									<img src="../images/wrong.png" class="mr_5" ng-if="com_list.setup==1||com_list.setup==3">
+									<span class="color_cf hand nohso" tapshow="2" ng-if="com_list.setup==1">置为不合适</span>
+									<span class="color_cf hand nohso" ng-if="com_list.setup==3" mkshow='mk1' comtime="com_editadd2">取消不合适</span>
+									<img src="../images/right.png" class="ml_16 mr_5" ng-if="com_list.setup==1||com_list.setup==2">
+									<span class="color_cf hand" ng-if="com_list.setup==1" comtime="com_editadd3">置为待确认</span>
+									<span class="color_cf hand" ng-if="com_list.setup==2" comtime="com_editadd3">取消待确认</span>
+								</span>
+								<aside>
+									<textarea id="editor" class="h_150 ml_40 mt_f4 mt_20 b_0 f_16 w_p88 mb_20" placeholder="输入内容" contenteditable="true" closeface></textarea>
+								</aside>
+								<span class="fr chat-sent-bt m_lr10">
+									<button type="" yssendmsg chattype="1" id="send">发送</button>
+								</span>
+								<span class="color_cf hand fr">按Enter键发送，按Shift+Enter键换行</span>
+							</aside>
+							<!-- 微简历 -->
+							<aside class="mic-paper-box f_13 contentname" ng-if="toggshow==1">
+								<ul>
+								   <!-- -m -->
+									<li class="fw_600 f_16">{{com_list.resume.fullname}}<span class="ml_16"><img ng-if="com_list.resume.sex==2" src="../images/sex-w.png"><img ng-if="com_list.resume.sex==1" src="../images/sex-m.png"></span></li>
+									<li class="color_8f mt_20 f_13">
+									   	<img ng-src="../images/bag.png">
+									   	<span ng-bind="com_list.resume.experience_cn"></span>工作经验
+									   	<span>&nbsp|&nbsp</span>
+									   	<img src="../images/study.png">
+									   	<span ng-bind="com_list.resume.education_cn"></span>学历
+									   	<span>&nbsp|&nbsp</span>
+									   	<img src="../images/leave.png">
+									   	<span ng-bind="com_list.resume.current_cn"></span>
+									</li>
+									<li class="mt_20">
+										<img src="../images/phone.png">
+										<span ng-bind="com_list.resume.telephone"></span>
+									</li>
+								</ul>
+								<div class="mic-paper-img fr	">
+									<img ng-src="{{com_list.resume.photo_img}}" style="width: 50px;height:50px"  alt="">
+								</div>
+								<p class="mt_40 f_16 color_black" ng-bind="com_list.resume.specialty">我的优势</p>
+								<div class="bt_1"></div>
+								<p class="color_cf mt_20 mb_20 lh_26 minh_80 f_13" ></p>
+								<p class="mt_40 f_16 color_black">求职意向</p>
+								<div class="bt_1"></div>
+								<aside class="color_8f mt_20 mb_20 f_13">
+								    <img src="../images/bell.png">
+									<span ng-bind="com_list.resume.intention_jobs">web前端</span>
+									<span>&nbsp|&nbsp</span>
+									<img src="../images/money.png">
+									<span ng-bind="com_list.resume.wage_cn">10-11K</span>
+									<span>&nbsp|&nbsp</span>
+									<img src="../images/position2.png">
+									<span ng-bind="com_list.resume.district_cn">深圳</span>
+								</aside>
+								<p class="mt_40 f_16 color_black">工作经历</p>
+								<div class="bt_1 mb_20"></div>
+								<span class="f_13">
+									<img src="../images/cycle.png" class="mr_10 fl">			
+									<span class=""  ng-bind="com_list.resume.formerco"></span>
+									<span class="fr color_cf minh_80" ng-bind="com_list.resume.formertime"></span>
+								</span>
+								<p class="mt_40 f_16 color_black">项目经验</p>
+								<div class="bt_1"></div>
+								<p class="color_cf mt_20 mb_20 lh_26 minh_80"  ng-bind="com_list.resume.project"></p>
+								<p class="mt_40 f_16 color_black">教育经历</p>
+								<div class="bt_1 mb_20"></div>
+								<span class="f_13 mb_20">
+									<img src="../images/cycle.png" class="mr_10 fl">			
+									<span class=""  ng-bind="com_list.resume.school"></span>
+									<span class="fr color_cf minh_80"  ng-bind="com_list.resume.schooltime"></span>
+								</span>
+								<div class="f_13">
+									<img src="../images/dian.png" class="mr_10">
+									<span  ng-bind="com_list.resume.major_cn"></span>
+								</div>
+								<aside>
+									<hr class="cl">						
+									<p class="color_cf f_12 fl">
+										<span ng-bind="com_list.data[0].createtime"></span>
+										向您的职位
+										<span class="color_blue" ng-bind="com_list.jobname"></span>
+										发起沟通
+									</p>
+									<div class="fr little-paper-bt mb_20">
+										<button class="f_13 color_red" ng-if="com_list.setup==1||com_list.setup==3">
+											<img src="../images/wrong-red.png">
+											<span tapshow="2" ng-if="com_list.setup==1">置为不合适</span>
+											<span ng-if="com_list.setup==3" mkshow='mk1' comtime="com_editadd2">取消不合适</span>
+										</button>
+										<button class="f_13 color_blue ml_16" comtime="com_editadd3" ng-if="com_list.setup==1||com_list.setup==2">
+											<img src="../images/right-blue.png">
+											<span ng-if="com_list.setup==1">置为待确认</span>
+											<span ng-if="com_list.setup==2">取消待确认</span>
+										</button>
+									</div>
+									<hr class="cl">
+								</aside>						
+							</aside>
+					    <!-- 微简历 -->
+					    <!-- 完整简历 -->
+							<aside ng-if="toggshow==2">
+								<div class="site_name site_info mt_15" style="padding: 12px 20px;">
+			                        <label style="width: 120px;">完整简历：</label>
+			                        <textarea id="editor2" ng-model="com_detail2.attachment" style="width:630px; height:630px;outline:none;padding-left: 0px;" placeholder="请输入描述"></textarea>
+				                </div>
+								<!-- <img ng-src="{{com_detail2.attachment}}" alt=""> -->
+							</aside>
+					    <!-- 完整简历 -->
+						</section>
+					</div>
+			   		<!-- 点击不合适、待沟通 -->
+					<div class="chat-layerbox" ng-if="tapshow==2" id="nohs">
+					    <div class="inadequacy-box bgc_f">
+					        <img src="../../images/close.png" class="fr mt_20 hand closeo" tapshow="0">
+					    	<p class="f_16 cl t_c color_8f fw_600">提示</p>
+					     <!-- 不合适、待沟通在此处切换 -->
+					    	<p class="mt_40 color_8f fw_600 ">当您点击<span>「不合适」</span>时，求职者会自动会进入<span class="color_blue ">「不合适」</span>选项卡。</p>
+					    	<p class="color_8f mt_20 fw_600">您是否期望向求职者自动发送一条消息？</p>
+				            <div class="mt_20">
+				                <ul>
+				                    <li style="float: left;">
+				                        <div style="margin-left: -26px;">
+				                            <input type="radio" ng-model="com_editadd2.params.issend" id="sendo" value="2" name="send" checked="" style="height: 16px;padding:0;margin: 0;width:72px;">
+				                            <label for="sendo" class="color_cf hand"> 不发送信息 </label>
+				                        </div>
+				                    </li>
+				                    <li style="float: left;">
+				                        <div>
+				                            <input type="radio" ng-model="com_editadd2.params.issend" id="sendo1" value="1" name="send" checked="" style="height: 16px;padding:0;margin: 0;width:72px;">
+				                            <label for="sendo1" class="color_cf hand"> 发送信息 </label>
+				                        </div>
+				                    </li>
+				                </ul>
+				            </div>
+					    	<div class="color_cf laynotice">
+					    		<textarea ng-if="com_editadd2.params.issend==1" class="w_p100 mt_20 color_8f mb_20" placeholder="您不太符合我们这个职位" ng-model="com_editadd2.params.reason"></textarea>
+					    		<textarea ng-if="com_editadd2.params.issend==2" class="w_p100 mt_20 color_8f mb_20" placeholder="不发送消息将不可编辑" ng-model="com_editadd2.params.reason" disabled></textarea>
+					    		<span class="fr f_13">
+					    			<button class="br_none color_cf" tapshow="0">取消</button>
+					    			<button class="br_none color_cf ml_16" comtime="com_editadd2">保存</button>
+					    			<button class="dpn" yssendmsg chattype='7' id="issend" style="border: 1px solid #fff;background: #fff;"></button>
+									<button class="dpn" yssendmsg chattype='8' id="nosend" style="border: 1px solid #fff;background: #fff;"></button>
+					    		</span>
+					    	</div>
+					    </div>				
+					</div>
+					<!-- 点击不合适、待沟通 -->
+				    <!-- 向对方发送面试邀请 -->
+		            <div class="r_p10 join-acceptornot bgc_f f_14 l_p48" id="inviteo" ng-if="tapshow==3">
+		            	<img src="../../images/close.png" class="fr mt_20 mr_40 hand closeo" tapshow="0">
+		            	<aside class="cl mt_80">
+		            	    <img src="../../images/time2.png" class="ml_40 mr_10">
+		            		<span class="color_cf">面试时间</span>
+		            		<span class="fr mr_40"><input type="text" layerdateone="com_editadd.params.interviewtime" class="h_24" value="{{com_editadd.params.interviewtime}}" key="stime" ng-model="com_editadd.params.interviewtime"></span>
+		                    <hr class="bor_d">
+		                    <img src="../../images/phone.png" class="ml_40 mr_10">
+		            		<span class="color_cf">联系电话</span>
+		            		<span class="fr mr_40"><input type="text" class="h_24" ng-model="com_editadd.params.telephone"></span>
+		                    <hr class="bor_d">
+		                    <img src="../../images/home.png" class="ml_40 mr_10">
+		            		<span class="color_cf">面试地点</span>
+		            		<div class="ml_40 mr_40 mt_20 "><textarea class="w_p100 h_61" ng-model="com_editadd.params.interview_address"></textarea></div>
+		                    <hr class="bor_d">
+		                    <img src="../../images/other.png" class="ml_40 mr_10">
+		            		<span class="color_cf">备注</span>
+		            		<div class="ml_40 mr_40 mt_20"><textarea class="w_p100 h_61 br_none" placeholder="备注信息填写" ng-model="com_editadd.params.notes"></textarea></div>
+		                    <hr class="bor_d">
+		            	</aside>
+		            	<span class="dpb t_c">
+							<button class="color_white" comtime="com_editadd">确认邀请</button>
+							<button class="color_white dpn" id="yaoqing" yssendmsg chattype="4" tapshow="0"></button>
+						</span>	
+		            </div>
+				<!-- 对方向发送面试邀请 -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

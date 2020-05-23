@@ -1,0 +1,287 @@
+<div class="of_ay" ng-controller="com_ctrl">
+<div class="sc_nav">
+    <div class="topLogo">
+	    <div>
+	    	<img src="/images/ysshare.jpg" alt="" style="width: 47px;height: 47px;float: left;border-radius: 6px;">
+	    	<span style="font-size: 18px;color:#32a4fc;float: left;margin-left:9px;    margin-top: 40px;">石头</span>
+	    	<span  style="font-size: 14px;color:#32a4fc;margin-left:-36px;float: left;
+    margin-top: 64px;font-weight: 100;">超级管理系统</span>
+	    </div>
+    </div>
+    <div class="admin-public-user">
+    	<img src="../images/timg.jpg" class="dpb mg_auto mt_40">
+    	<p class="t_c f_16 mt_20">权志龙</p>
+    </div>
+	<ul class="sc_nav_list color_cf f_15 new-nav" >
+		   <a href="/main.html#job_manage"><li class="nav_li color_black"><img src="../images/file.png"><span>职位管理</span></li></a>
+		   <a href="/main.html#yushan_hero"><li class="nav_li color_black admin-nav-bg"><img src="../images/like.png"><span>石头牛人</span></li></a>
+		   <a href="/main.html#communica"><li class="nav_li color_black"><img src="../images/chat.png"><span>沟通</span></li></a>
+		   <a href="/main.html#company_info"><li class="nav_li color_black"><img src="../images/company.png"><span>公司信息</span></li></a>	
+	</ul>
+</div>
+
+	<div class="sc_main pd_top admin-public-top">
+		<div class="header">
+		<div class="admin-public-content f_14">
+			<span>深圳石头</span>
+			<span class="fr">
+				<div class="pure-menu pure-menu-horizontal">
+				    <ul class="pure-menu-list lh_20">
+				        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">我要求职</a></li>
+				        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+				            <a href="#" id="menuLink1" class="pure-menu-link bor_blue lh_12">招聘管理</a>
+				            <ul class="pure-menu-children pt_10">
+				                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+				                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+				                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
+				            </ul>
+				        </li>
+				    </ul>
+				</div>
+			</span>
+		</div>
+	</div>
+</div>
+<div class="sc_main mt_80 ps_f ml_226">
+
+
+
+<div>
+	<div class="admin-public-content">
+		<nav class="admin-chat-topnav bgc_f f_14 color_8f lh_50">
+			<ul>
+				<li class="{{tapshow==0?'color_blue':''}}" name="niuren" tapshow="0" toggleshow="0" comtime="com_list_page">推荐牛人</li>
+				<li class="{{tapshow==1?'color_blue':''}}" name="niuren" tapshow="1" toggleshow="0" comtime="com_list_page2">看过我</li>
+				<li class="hero-inp" ng-if="tapshow==0"><input type="text" class="color_black" ng-model="com_list_page.params.keyword" style="width: 255px;" placeholder="请输入要查询的牛人期望职位" id="heroinput1"><img src="../images/search2.png" alt="" class="ml_f28" comtime="com_list_page" id="heroimg1"></li>	
+				<li class="hero-inp" ng-if="tapshow==1"><input type="text" class="color_black" ng-model="com_list_page2.params.keyword" style="width: 255px;" placeholder="请输入要查询的牛人期望职位" id="heroinput2"><img src="../images/search2.png" alt="" class="ml_f28" comtime="com_list_page2" id="heroimg2"></li>
+			</ul>
+        	<button class="dpn" name="fasong" yssendmsg chattype="19"></button>
+			<aside class="h_100" ng-if="tapshow==0">        
+				<div class="pure-menu pure-menu-horizontal">
+					<ul class="pure-menu-list f_14 fr">
+						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+							<a name="menuLink2" class=" mt_8 lh_20 color_blue">{{com_list2.data[0].jobs_name}}<img src="../images/down.png" class="ml_16"></a>
+							<ul class="pure-menu-children pt_10" style="width: 108px;top: 50px;left: -12px;" name="jobs">
+								<li class="pure-menu-item w_p100 lh_20" value="{{value.jobs_name}}" selectrun="com_list_page.params.jobs_name" ng-repeat="(key,value) in com_list2.data" setstore="{{value.id}}" key="jobid">
+									<span ng-bind="value.jobs_name" class="pure-menu-link"></span>
+								</li>
+							</ul>
+						</li>
+						<li class="pure-menu-item pure-menu-selected"><a class=" lh_20 mt_8 color_blue">
+						<span ng-if="toggleshow==0" toggleshow="1">筛选</span>
+					<span ng-if="toggleshow==1" toggleshow="0">收起</span>
+						<img src="../images/down.png" class="ml_16"></a>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<aside class="h_100" ng-if="tapshow==1">        
+				<div class="pure-menu pure-menu-horizontal">
+					<ul class="pure-menu-list f_14 fr">
+						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+							<a name="menuLink2" class=" mt_8 lh_20 color_blue">{{com_list2.data[0].jobs_name}}<img src="../images/down.png" class="ml_16"></a>
+							<ul class="pure-menu-children pt_10" style="width: 108px;top: 50px;left: -12px;" name="jobs">
+								<li class="pure-menu-item w_p100 lh_20" value="{{value.jobs_name}}" selectrun="com_list_page2.params.jobs_name" ng-repeat="(key,value) in com_list2.data" setstore="{{value.id}}" key="jobid2">
+									<span ng-bind="value.jobs_name" class="pure-menu-link"></span>
+								</li>
+							</ul>
+						</li>
+						<li class="pure-menu-item pure-menu-selected"><a class=" lh_20 mt_8 color_blue">
+						<span ng-if="toggleshow==0" toggleshow="2">筛选</span>
+						<span ng-if="toggleshow==2" toggleshow="0">收起</span>
+						<img src="../images/down.png" class="ml_16"></a>
+						</li>
+					</ul>
+				</div>
+			</aside>
+		</nav>
+		<aside class="bgc_f h_p100 w_p100" id="showone" ng-if="toggleshow==1">
+			<nav class="admin-chat-topnav bgc_f f_14 color_8f div_alc" style="width: 100%;height: 100px;">
+				<span class="fl">
+					<span class="lh_50 ml_42">薪水：</span>
+				</span>
+				<ul class="chat-no-bt lh_50" id="wage">
+					<li class="ml_20 color_blue2 bx-bt" value="" style="padding: 0px 8px;margin-top: 12px;line-height: 23px;color: #fe571e !important;" selectrun="com_list_page.params.salary">不限</li>
+					<li value="{{value.c_id}}" selectrun="com_list_page.params.salary" ng-repeat="(key,value) in com_list3.data">{{value.c_name}}<span class="ml_16">|</span></li>
+				</ul>
+			</nav>
+			<div class="bt_1 mb_10"></div>
+			<nav class="admin-chat-topnav bgc_f f_14 color_8f mt_f10">
+				<span class="fl">
+					<span class="lh_50">经验：</span>
+				</span>
+				<ul class="chat-no-bt lh_50" id="experience">
+					<li class="ml_20 bx-bt color_blue2" style="padding: 0px 8px;margin-top: 12px;line-height: 23px;color: #fe571e !important;"　value="" selectrun="com_list_page.params.experience">不限</li>
+					<li value="{{value.c_id}}" selectrun="com_list_page.params.experience" ng-repeat="(key,value) in com_list4.data">{{value.c_name}}<span class="ml_16">|</span></li>
+				</ul>
+			</nav>
+			<div class="bt_1 ml_20 mr_40"></div>
+		</aside>
+		<aside class="bgc_f h_p100 w_p100" id="showone" ng-if="toggleshow==0">
+		</aside>
+		<aside class="bgc_f h_p100 w_p100" id="showone" ng-if="toggleshow==2">
+			<nav class="admin-chat-topnav bgc_f f_14 color_8f div_alc" style="width: 100%;height: 100px;">
+				<span class="fl">
+					<span class="lh_50 ml_42">薪水：</span>
+				</span>
+				<ul class="chat-no-bt lh_50" id="wage2">
+					<li class="ml_20 color_blue2 bx-bt" value="" style="padding: 0px 8px;margin-top: 12px;line-height: 23px;color: #fe571e !important;" selectrun="com_list_page2.params.salary">不限</li>
+					<li value="{{value.c_id}}" selectrun="com_list_page2.params.salary" ng-repeat="(key,value) in com_list3.data">{{value.c_name}}<span class="ml_16">|</span></li>
+				</ul>
+			</nav>
+			<div class="bt_1 mb_10"></div>
+			<nav class="admin-chat-topnav bgc_f f_14 color_8f mt_f10">
+				<span class="fl">
+					<span class="lh_50">经验：</span>
+				</span>
+				<ul class="chat-no-bt lh_50" id="experience2">
+					<li class="ml_20 bx-bt color_blue2" style="padding: 0px 8px;margin-top: 12px;line-height: 23px;color: #fe571e !important;"　value="" selectrun="com_list_page2.params.experience">不限</li>
+					<li value="{{value.c_id}}" selectrun="com_list_page2.params.experience" ng-repeat="(key,value) in com_list4.data">{{value.c_name}}<span class="ml_16">|</span></li>
+				</ul>
+			</nav>
+			<div class="bt_1 ml_20 mr_40"></div>
+		</aside>
+	<!-- 未发布职位出现 -->
+        <aside class="w_p100 bgc_f h_p100 mt_10 hero-blank" ng-if="com_list.data.length==0">
+        	<div class="t_c mb_116">
+        		<img src="../images/plane.png" alt="">
+        	</div>
+        	<p class="t_c curr f_20 ">您需要先发布职位，才能查看牛人推荐</p>
+        	<button type="" class="mg_auto mt_40 color_white">发布职位</button>
+        </aside>
+    <!-- 未发布职位出现 --> 
+	    <div class="{{zwtotal=='0'?'':'dpn'}}">
+				<div class="nothing">
+					<img src="../images/meiyouneirong_03.png" alt="">		
+					<h4>暂未搜索到内容，换个关键词试试！</h4>
+				</div>
+			</div>  
+    <div ng-if="com_list.data.length==1">
+		    <div ng-if="tapshow==0">
+        	<aside class="bgc_f admin-hero-card mt_10 hand cl" ng-repeat="(key, value) in com_list_page.data.datalist">
+        		<ul class="fl">
+        			<li class="user-little-paper hand">
+        			    <div class="color_8f mb_20 f_15">
+        			    	<span ng-bind="value.residence"></span>
+        			    	<span>&nbsp|&nbsp</span>
+        			    	<span ng-bind="value.experience_cn"></span>
+        			    	工作经验
+        			    	<span>&nbsp|&nbsp</span>
+        			    	<span ng-bind="value.education_cn"><sapn>学历</sapn></span>
+        			    	<span>&nbsp|&nbsp{{value.curwage}}</span>
+        			    </div>
+        			    <aside class="fl mr_10">
+        			    	<div style="text-align: center;">
+        			    		<img ng-src="{{value.photo_img}}">
+        			    		<div class="color_red bx-bt f_12 mt_20" ng-bind="value.wage_cn"></div>
+        			    	</div>
+        			    </aside>
+        			    <aside class="color_8f f_14 lh_26">
+        			    	<div>
+        			    		<span ng-bind="value.fullname"></span>
+        			    		<span>&nbsp|&nbsp</span>
+        			    		<span>期望职位&nbsp</span>
+        			    		<span ng-bind="value.intention_jobs"></span>
+        			    	</div>
+        			    	<div class="mt_10">
+        			    		<span>曾任<span ng-bind="value.former"></span>&nbsp</span>
+        			    		<span ng-bind="value.formerco"></span>
+        			    	</div>
+        			    	<div class="mt_10">
+        			    		<span ng-bind="value.school"></span>&nbsp
+        			    		<span ng-bind="value.major_cn"></span>
+        			    	</div>
+        				</aside>
+        			</li>
+        		</ul>
+        		<ul class="fr w_280 color_8f">
+        			<li class="mt_40">&nbsp|&nbsp个人优势</li>
+        			<li class="mt_20 color_cf estwo" ng-bind="value.specialty"></li>
+        		</ul>
+        		<hr class="cl">
+        	    <div class="fr mt_f10 color_cf" ng-if="value.ischat==1">
+        			<span class="f_12"><span ng-bind="value.timestr"></span>由求职人发起沟通</span>
+        			<a href="/main.html#communica" class="bor_blue pf_2_10 ml_16">继续沟通</a>
+        		</div>
+        	<!-- 未沟通过的牛人切换 -->
+        		<div class="fr mt_f10" ng-if="value.ischat==0">
+        			<a><button class="bg_blue color_white pf_2_10 br_none" value="{{value.uid}}" selectrun="com_detail.params.touserid" setstore="19" key="chattype">打招呼</button></a>
+        		</div>
+        	<!-- 未沟通过的牛人切换 -->
+        	</aside>
+        	<div id="page" class="t_c" style="text-align: center;margin-top: 25px;"></div>
+        	</div>
+		    </div>
+        	<div ng-if="tapshow==1">
+        		<aside class="bgc_f admin-hero-card mt_10 hand cl" ng-repeat="(key, value) in com_list_page2.data.datalist">
+        		<ul class="fl">
+        			<li class="user-little-paper hand">
+        			    <div class="color_8f mb_20 f_15">
+        			    	<span ng-bind="value.residence"></span>
+        			    	<span>&nbsp|&nbsp</span>
+        			    	<span ng-bind="value.experience_cn"></span>
+        			    	工作经验
+        			    	<span>&nbsp|&nbsp</span>
+        			    	<span ng-bind="value.education_cn"><sapn>学历</sapn></span>
+        			    	<span>&nbsp|&nbsp{{value.curwage}}</span>
+        			    </div>
+        			    <aside class="fl mr_10">
+        			    	<div style="text-align: center;">
+        			    		<img ng-src="{{value.photo_img}}">
+        			    		<div class="color_red bx-bt f_12 mt_20" ng-bind="value.wage_cn"></div>
+        			    	</div>
+        			    </aside>
+        			    <aside class="color_8f f_14 lh_26">
+        			    	<div>
+        			    		<span ng-bind="value.fullname"></span>
+        			    		<span>&nbsp|&nbsp</span>
+        			    		<span>期望职位&nbsp</span>
+        			    		<span ng-bind="value.intention_jobs"></span>
+        			    	</div>
+        			    	<div class="mt_10">
+        			    		<span>曾任<span ng-bind="value.former"></span>&nbsp</span>
+        			    		<span ng-bind="value.formerco"></span>
+        			    	</div>
+        			    	<div class="mt_10">
+        			    		<span ng-bind="value.school"></span>&nbsp
+        			    		<span ng-bind="value.major_cn"></span>
+        			    	</div>
+        				</aside>
+        			</li>
+        		</ul>
+        		<ul class="fr w_280 color_8f">
+        			<li class="mt_40">&nbsp|&nbsp个人优势</li>
+        			<li class="mt_20 color_cf estwo" ng-bind="value.specialty"></li>
+        		</ul>
+        		<hr class="cl">
+        	    <div class="fr mt_f10 color_cf" ng-if="value.ischat==1">
+        			<span class="f_12"><span ng-bind="value.timestr"></span>由求职人发起沟通</span>
+        			<a href="/main.html#communica" class="bor_blue pf_2_10 ml_16">继续沟通</a>
+        		</div>
+        	<!-- 未沟通过的牛人切换 -->
+        		<div class="fr mt_f10" ng-if="value.ischat==0">
+        			<a href="/main.html#communica"><button class="bg_blue color_white pf_2_10 br_none" value="{{value.uid}}" selectrun="com_detail.params.touserid" setstore="19" key="chattype">打招呼</button></a>
+        		</div>
+        	<!-- 未沟通过的牛人切换 -->
+        	</aside>
+        	<div id="page" class="t_c" style="text-align: center;margin-top: 25px;"></div>
+        	</div>
+    	</div> 
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+

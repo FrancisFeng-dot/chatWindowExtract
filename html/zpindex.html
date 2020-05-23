@@ -1,0 +1,183 @@
+<div style="background:#f7f7f7;" ng-controller="com_ctrl">
+	<header class="pulib-header">
+		<div class="public-nav">
+			<div class="logo"></div>
+			<div class="mt_f36 ml_130 f_14">
+			<div>
+				<a class="ml_30 fl hand color_blue" href="/main.html#/zpindex">求职</a>
+				 <span class="head-bt fr"  ng-if="we=='0'">
+				    <button class="dlbt" loginbox>登录</button>
+					<button registerbox>注册</button>
+				</span>
+			</div>							
+			<!-- 登陆后出现 -->
+			<span ng-if="we=='1'">
+				<aside class="fr join-user-top clblue">
+				<span><a href="/main.html#resume" target="blank">我的简历</a></span>
+				<span><a href="/main.html#chatlist" target="blank">聊天</a></span>
+				<span><a href="/main.html#job_manage" target="blank">我要招聘</a></span>
+				<span><a href="javascript:;" lgout lgnull>退出登录</a></span>
+				<img src="images/user.png" alt="">
+					  </aside>
+			</span>			
+			<!-- 登陆后出现 -->
+		 </div>
+		</div>
+			
+</header>
+
+<div class="container public-content" ng-init="provincename='北京'">
+	<div class="public-intro">
+		<div class="join-index-box f_15 int" >
+			<input type="text" placeholder="搜索职位" ng-model="keyword" ng-keyup="enterEvent($event)">
+			<span class="intbottom"></span>
+			<span class="ml_f112 color_cf">
+				<img src="images/position.png" alt="">
+				
+			<div class="dropdown div_alc m_lr6">
+				<a type="button" class="btn dropdown-toggle p_both" id="dropdownMenu1" data-toggle="dropdown" ng-bind="cityname" style="min-width: 58px">	
+				</a>
+				<!-- 省份 -->
+				<ul class="dropdown-menu ml_f158 mt_10 join-click-map color_8f" >
+					<li  ng-repeat="(key, value) in com_list.data">
+						<a href="javascript:;" ng-bind="value.province"  getcity="{{value.pid}}"></a>
+					</li>		
+				</ul>
+				<!-- 城市 -->				
+				<ul class="dropdown-menu ml_f158 mt_10 join-click-map color_8f" style="margin-left:2px">
+					<li  ng-repeat="(key, value) in nowcity">
+						<a href="javascript:;" ng-bind="value.city" ng-model="com_editadd.params.city" setcyprurl="city" val={{value.cityid}}></a>
+					</li>		
+				</ul>
+
+
+			</div>
+
+		</span>
+		<button type="button" comtime="com_list_page" getkw="keyword"  >
+			<img src="images/search.png" alt=""></button>
+	</div>
+</div>
+<div class="bgc_f">
+ <div class="index-join-adress f_14 color_8f bgc_f h_80">
+	<div class="fl">
+		<span class="mr_10">省份</span>
+		<span>
+			<span ng-bind="nowprovince"></span>
+			<img src="images/r2.png" alt="" class="ml_6">
+	   </span>
+	</div>
+	<span class="cl ml_30 hand " delpro="province" ng-class="{'bor_red':nowprovince=='全国'}">不限</span>
+	<span class="m_lr20">热门省份：</span>
+	<ul class="clblue" ng-repeat="(key, value) in hotpro">
+		<li ng-bind="value.province" clcity="{{value.pid}}" setlocalurl="province" val={{value.pid}}   ng-class="{'bor_red':value.province == nowprovince}"></li>
+	</ul>
+</div>
+<!-- <div class="bt_1 mr_40 ml_30"></div> -->
+<div class="index-join-adress f_14 color_8f bgc_f7" ng-class="{'dpn':nowprovince=='全国'}" style="min-height: 45px">
+	<div class="fl">
+		<span>城市：</span>
+		<!-- <span>
+			<span ng-bind="cityname"></span>
+			<img src="images/r2.png" alt="" class="ml_6">
+	   </span> -->
+	</div>
+	<!-- 选中加上类bor_red -->
+	<span class="cl ml_30 hand" delthis="city" ng-class="{'bor_red':cityname=='请选择'}">不限</span>
+	<ul class="nohot clblue" ng-repeat="(key, value) in cities">
+		<li ng-bind="value.city"  setlocalurl="city" val={{value.cityid}} ng-class="{'bor_red':value.city == cityname}"></li>
+		
+	</ul>
+</div>
+<div class="bt_1 mr_40 ml_30"></div>  
+<div class="index-join-adress f_14 color_8f bgc_f h_43">
+	<p class="fl">经验</p>
+	<span class="cl ml_30 hand " delthis="experience" ng-class="{'bor_red':exper==''}">不限</span>
+	<ul style="margin-left: 130px" class="clblue" ng-repeat="(key, value) in com_list3.data">
+		<li ng-bind="value.c_name" setlocalurl="experience" val={{value.c_id}} ng-class="{'bor_red':value.c_name == exper}"></li>		
+	</ul>
+</div>
+<div class="bt_1 mr_40 ml_30"></div>
+<div class="index-join-adress f_14 color_8f bgc_f mt_f26 mt_0 h_80">
+	<p class="fl" >薪资</p>
+	<span class="cl ml_30 hand" delthis="wage" ng-class="{'bor_red':money==''}">不限</span>
+	<ul style="margin-left: 130px;width: 86%" class="clblue" ng-repeat="(key, value) in com_list4.data">
+		<li ng-bind="value.c_name" setlocalurl="wage" val={{value.c_id}} ng-class="{'bor_red':value.c_name == money}"></li>
+	</ul>
+</div>
+<div class="bt_1 mr_40 ml_30"></div>
+<div class="index-join-adress f_14 color_8f bgc_f mt_0 h_43">
+	<p class="fl">公司类型</p>
+	<span class="cl ml_30 hand" delthis="company_type" ng-class="{'bor_red':comtype==''}">不限</span>
+	<ul style="margin-left: 150px;width: 80%" class="clblue" ng-repeat="(key, value) in com_list5.data">
+		<li ng-bind="value.c_name" setlocalurl="company_type" val={{value.c_id}} ng-class="{'bor_red':value.c_name == comtype}" comtime="com_list_page"></li>
+	</ul>
+</div>
+</div>
+<div class="pr_100 bgc_f mt_20 color_8f">
+	<div class="public-content">
+		<div class="row" style="padding-bottom: 20px">
+		   <a href="/main.html#jobdetail?codeid={{value.codeid}}&company_id={{value.company_id}}" target="blank" title="" ng-repeat="(key, value) in com_list_page.data.datalist">
+			<div class="col-xs-5">
+				<aside class="join-personal-card box">
+				     <span class="border top"></span>
+				     <span class="border left"></span>
+				     <span class="border bottom"></span>
+				     <span class="border right"></span>
+					<ul class="bgc_f div_alc">
+						<li>
+							<span class="f_18 fw_600" ng-bind="value.jobs_name"></span>
+							<span class="f_16 color_red ml_6" ng-bind="value.wage_cn"></span>
+						</li>
+						<li class="mb_20">
+							<span ng-bind="value.district_cn"></span>
+							&nbsp|&nbsp
+							<span ng-bind="value.experience_cn"></span>
+							&nbsp|&nbsp
+							<span ng-bind="value.education_cn"></span>
+						</li>
+						
+						<li class="mt_40">
+							<img src="images/company.png" alt="">
+							<span class="ml_6" ng-bind="value.companyname"></span>
+						</li>
+					</ul>
+					<ul class="bgc_f div_alc fr t_c">
+						<li class="color_cf">
+							发布于:
+							<span ng-bind="value.addtime"></span>
+						</li>
+						<li class="join-personal-img">
+							<img ng-src="{{value.headimg}}" alt=""></li>
+						<li>
+							<span ng-bind="value.nickname"></span>
+							&nbsp|&nbsp
+							<span ng-bind="value.category_cn"></span>
+						</li>
+					</ul>
+				</aside>
+			</div>
+		</a>
+		</div>
+
+		<div ng-if="!com_list_page.data.total">
+			<div class="nothing">
+				<img src="../images/meiyouneirong_03.png" alt="">		
+				<h4>暂未搜索到内容，换个关键词试试！</h4>
+			</div>
+		</div>
+	 
+      <!-- 分页 -->
+	<div id="page" class="t_c mt_40" ng-if="com_list_page.data.total !== '0'"></div>
+	</div>
+<!-- class="{{com_list_page.data.total='0'?'dpn':''}}" -->
+	
+	
+</div>
+
+
+</div>
+
+<footer></footer>
+
+</div>
